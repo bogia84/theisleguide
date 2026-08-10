@@ -1,22 +1,219 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-    <title>My File List</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Isle: Evrima — Hướng Dẫn Tiếng Việt</title>
+<style>
+  :root {
+    --bg: #0c130d;
+    --panel: #16201a;
+    --panel-border: #3a4a3a;
+    --amber: #f2b705;
+    --amber-dim: #6b4d00;
+    --text: #e8dfc4;
+    --text-dim: #9c8a55;
+    --green: #7fae7a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.5;
+  }
+  .stripe {
+    height: 10px;
+    background: repeating-linear-gradient(-45deg, var(--amber), var(--amber) 12px, #111 12px, #111 24px);
+  }
+  header {
+    background: #000;
+    border-bottom: 3px solid var(--amber);
+    padding: 40px 24px 34px;
+    text-align: center;
+  }
+  header .kicker {
+    font-family: "Courier New", monospace;
+    letter-spacing: 2px;
+    font-size: 12px;
+    color: var(--green);
+    margin-bottom: 10px;
+  }
+  header h1 {
+    margin: 0 0 10px;
+    font-size: clamp(32px, 6vw, 54px);
+    font-family: Georgia, serif;
+    font-weight: 700;
+    color: var(--amber);
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 var(--amber-dim), 0 0 24px rgba(242,183,5,0.35);
+  }
+  header p {
+    max-width: 620px;
+    margin: 0 auto;
+    color: var(--text-dim);
+    font-size: 14px;
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 18px;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-top: 3px solid var(--amber);
+    border-radius: 4px;
+    padding: 20px;
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: var(--amber);
+    box-shadow: 0 6px 18px rgba(242, 183, 5, 0.12);
+  }
+  .card .icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  .card .name {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--amber);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+  .card .tagline {
+    font-size: 12.5px;
+    color: var(--text-dim);
+    flex-grow: 1;
+    margin-bottom: 14px;
+  }
+  .card .view {
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    color: #0c130d;
+    background: var(--amber);
+    padding: 6px 10px;
+    border-radius: 2px;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+  footer {
+    text-align: center;
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    padding: 24px;
+    border-top: 1px dashed var(--panel-border);
+  }
+</style>
 </head>
 <body>
-    <h1>Click on each file to view the guide</h1>
-    <ul>
-        <li><a href="Carnivores_Allosaurus_Tieng_Viet.pdf">Allosaurus</a></li>
-        <li><a href="Carnivores_Austroraptor_Tieng_Viet.pdf">Austroraptor</a></li>
-        <li><a href="Carnivores_Carnotaurus_Tieng_Viet.pdf">Carnotaurus</a></li>
-        <li><a href="Carnivores_Ceratosaurus_Tieng_Viet.pdf">Ceratosaurus</a></li>
-        <li><a href="Carnivores_Deinosuchus_Tieng_Viet.pdf">Deinosuchus</a></li>
-        <li><a href="Carnivores_Dilophosaurus_Tieng_Viet.pdf">Dilophosaurus</a></li>
-        <li><a href="Carnivores_Herrerasaurus_Tieng_Viet.pdf">Herrerasaurus</a></li>
-        <li><a href="Carnivores_Omniraptor_Tieng_Viet.pdf">Omniraptor</a></li>
-        <li><a href="Carnivores_Pteranodon_Tieng_Viet.pdf">Pteranodon</a></li>
-        <li><a href="Carnivores_Troodon_Tieng_Viet.pdf">Troodon</a></li>
-        <li><a href="Carnivores_Tyrannosaurus_Tieng_Viet.pdf">Tyrannosaurus</a></li>
-    </ul>
+<div class="stripe"></div>
+
+<header>
+  <div class="kicker">INGEN GENETIC ARCHIVES · HỒ SƠ SINH VẬT</div>
+  <h1>THE ISLE: EVRIMA</h1>
+  <p>Bộ hướng dẫn nhanh bằng tiếng Việt cho các loài ăn thịt (Carnivores) trong The Isle: Evrima — tăng trưởng, dinh dưỡng, kỹ năng chiến đấu và chiến thuật săn mồi.</p>
+</header>
+
+<main>
+  <div class="grid">
+
+    <a class="card" href="Carnivores_Allosaurus_Tieng_Viet.pdf">
+      <div class="icon">🦖</div>
+      <div class="name">Allosaurus</div>
+      <div class="tagline">Kẻ săn mồi nhanh nhẹn, chiến thắng bằng áp lực, vị trí và thời điểm.</div>
+      <div class="view">XEM HƯỚNG DẪN →</div>
+    </a>
+
+    <a class="card" href="Carnivores_Austroraptor_Tieng_Viet.pdf">
+      <div class="icon">🦅</div>
+      <div class="name">Austroraptor</div>
+      <div class="tagline">Săn theo bầy tốc độ cao, có khả năng đâm bắt cá chuyên biệt.</div>
+      <div class="view">XEM HƯỚNG DẪN →</div>
+    </a>
+
+    <a class="card" href="Carnivores_Carnotaurus_Tieng_Viet.pdf">
+      <div class="icon">🐆</div>
+      <div class="name">Carnotaurus</div>
+      <div class="tagline">Cỡ trung, chuyên tốc độ và những đợt bứt phá sức mạnh đột ngột.</div>
+      <div class="view">XEM HƯỚNG DẪN →</div>
+    </a>
+
+    <a class="card" href="Carnivores_Ceratosaurus_Tieng_Viet.pdf">
+      <div class="icon">🦴</div>
+      <div class="name">Ceratosaurus</div>
+      <div class="tagline">Đa năng — vừa là thợ săn vừa là loài ăn xác bền bỉ.</div>
+      <div class="view">XEM HƯỚNG DẪN →</div>
+    </a>
+
+    <a class="card" href="Carnivores_Deinosuchus_Tieng_Viet.pdf">
+      <div class="icon">🐊</div>
+      <div class="name">Deinosuchus</div>
+      <div class="tagline">Cá sấu khổng lồ chuyên phục kích và ghì chặt con mồi dưới nước.</div>
+      <div class="view">XEM HƯỚNG DẪN →</div>
+    </a>
+
+    <a class="card" href="Carnivores_Dilophosaurus_Tieng_Viet.pdf">
+      <div class="icon">☠️</div>
+      <div class="name">Dilophosaurus</div>
+      <div class="tagline">Nhỏ, nhanh nhẹn, gây ảo giác cho con mồi bằng nọc độc.</div>
+      <div class="view">XEM HƯỚNG DẪN →</div>
+    </a>
+
+    <a class="card" href="Carnivores_Herrerasaurus_Tieng_Viet.pdf">
+      <div class="icon">🦎</div>
+      <div class="name">Herrerasaurus</div>
+      <div class="tagline">Săn mồi cơ hội, nhanh nhẹn, thích nghi tốt với săn mồi và ăn xác.</div>
+      <div class="view">XEM HƯỚNG DẪN →</div>
+    </a>
+
+    <a class="card" href="Carnivores_Omniraptor_Tieng_Viet.pdf">
+      <div class="icon">🐦</div>
+      <div class="name">Omniraptor</div>
+      <div class="tagline">Nhỏ nhưng cực kỳ thích nghi, vượt trội về tốc độ và vồ ghim.</div>
+      <div class="view">XEM HƯỚNG DẪN →</div>
+    </a>
+
+    <a class="card" href="Carnivores_Pteranodon_Tieng_Viet.pdf">
+      <div class="icon">🦇</div>
+      <div class="name">Pteranodon</div>
+      <div class="tagline">Thằn lằn bay cỡ lớn, thống trị bầu trời nhưng yếu trên mặt đất.</div>
+      <div class="view">XEM HƯỚNG DẪN →</div>
+    </a>
+
+    <a class="card" href="Carnivores_Troodon_Tieng_Viet.pdf">
+      <div class="icon">🌙</div>
+      <div class="name">Troodon</div>
+      <div class="tagline">Săn mồi về đêm, dùng nọc độc để làm suy yếu con mồi.</div>
+      <div class="view">XEM HƯỚNG DẪN →</div>
+    </a>
+
+    <a class="card" href="Carnivores_Tyrannosaurus_Tieng_Viet.pdf">
+      <div class="icon">👑</div>
+      <div class="name">Tyrannosaurus</div>
+      <div class="tagline">Kẻ săn mồi đỉnh cao lớn nhất — biểu tượng sức mạnh và thống trị.</div>
+      <div class="view">XEM HƯỚNG DẪN →</div>
+    </a>
+
+  </div>
+</main>
+
+<footer>
+  BIÊN SOẠN TỪ EVRIMAQUICKGUIDE.COM — BẢN DỊCH TIẾNG VIỆT
+</footer>
+
 </body>
 </html>
