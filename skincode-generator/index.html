@@ -275,6 +275,55 @@
     background: #0c0e08;
   }
 
+  .preview-tabs{
+    display:flex; gap:6px; margin-bottom:10px;
+  }
+  .preview-tab{
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-size: 11.5px;
+    padding: 7px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    background: var(--bg-2);
+    color: var(--ink-dim);
+    cursor: pointer;
+  }
+  .preview-tab.active{
+    border-color: var(--accent);
+    color: var(--ink);
+    background: rgba(217,143,43,0.12);
+  }
+
+  .viewer3d{
+    position: relative;
+    width: 100%;
+    height: 220px;
+    border-radius: 8px;
+    border: 1px solid var(--line-soft);
+    background: #0c0e08;
+    overflow: hidden;
+  }
+  .viewer3d canvas{
+    display:block;
+    width:100%;
+    height:100%;
+  }
+  .viewer3d .viewer3d-status{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding: 16px;
+    font-size: 12.5px;
+    color: var(--muted);
+    background: #0c0e08;
+    pointer-events:none;
+  }
+
   .code-bar{
     margin-top: 14px;
     overflow-x: auto;
@@ -475,7 +524,17 @@
 
     <div class="forge">
       <div class="preview-panel">
+        <div class="preview-tabs" id="previewTabs">
+          <button type="button" class="preview-tab active" data-tab="2d">2D Swatch</button>
+          <button type="button" class="preview-tab" data-tab="3d">3D Model</button>
+        </div>
+
         <canvas id="skinCanvas" width="1000" height="440"></canvas>
+
+        <div class="viewer3d" id="viewer3d" style="display:none">
+          <canvas id="viewer3dCanvas"></canvas>
+          <div class="viewer3d-status" id="viewer3dStatus"></div>
+        </div>
 
         <div class="code-bar">
           <div class="code-line" id="codeLine"></div>
@@ -907,9 +966,19 @@
     ctx.fillRect(0,0,W,H);
   }
 
+  // The 3D module script loads as a deferred `type="module"` script, so it
+  // isn't ready yet during this script's own init render — it calls this
+  // itself (window.syncTo3D) once it's up, to pick up current state.
+  function syncTo3D(){
+    window.SkinForge3D?.setSpecies(state.species);
+    window.SkinForge3D?.setColors(buildSegments());
+  }
+  window.syncTo3D = syncTo3D;
+
   function renderPreviewOnly(){
     renderCodeLine();
     drawPreview();
+    syncTo3D();
   }
 
   function renderAll(){
@@ -1036,10 +1105,309 @@
 
   window.addEventListener("resize", () => drawPreview());
 
+  // ---------- preview tabs ----------
+  document.getElementById("previewTabs").addEventListener("click", (e) => {
+    const btn = e.target.closest(".preview-tab");
+    if (!btn) return;
+    const tab = btn.dataset.tab;
+    document.querySelectorAll(".preview-tab").forEach(b => b.classList.toggle("active", b === btn));
+    document.getElementById("skinCanvas").style.display = tab === "2d" ? "block" : "none";
+    document.getElementById("viewer3d").style.display = tab === "3d" ? "block" : "none";
+    window.SkinForge3D?.setActive(tab === "3d");
+  });
+
   // ---------- init ----------
   renderAll();
   renderThemeChips();
   renderPresets();
+})();
+</script>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module">
+import * as THREE from "three";
+import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
+import { MTLLoader } from "three/addons/loaders/MTLLoader.js";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+(function(){
+  // Order matches buildSegments()'s output order in the main script.
+  const KEY_COLORS = [
+    { key:"prefixTint",  rgb:[255,0,0]   },
+    { key:"underbelly",  rgb:[0,255,0]   },
+    { key:"body",        rgb:[0,0,255]   },
+    { key:"flank",       rgb:[255,255,0] },
+    { key:"markings",    rgb:[255,0,255] },
+    { key:"maleDisplay", rgb:[0,255,255] }
+  ];
+
+  const canvas = document.getElementById("viewer3dCanvas");
+  const statusEl = document.getElementById("viewer3dStatus");
+  const container = document.getElementById("viewer3d");
+
+  let renderer, scene, camera, controls;
+  let currentMesh = null;
+  let active = false;
+  let rafId = null;
+  let loadToken = 0;
+
+  let currentSpecies = null;
+  let currentColorsHex = KEY_COLORS.map(() => "000000");
+  let maskEntry = null;          // { mask: ImageData, detail: ImageData|null, width, height }
+  let outCanvas = null, outCtx = null, texture = null;
+  let recolorScheduled = false;
+
+  const maskCache = new Map();   // species -> maskEntry
+
+  function initScene(){
+    renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(45, 1, 0.01, 100);
+    camera.position.set(1.6, 1.2, 2.4);
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+    const key = new THREE.DirectionalLight(0xffffff, 1.1);
+    key.position.set(3, 5, 4);
+    scene.add(key);
+    const fill = new THREE.DirectionalLight(0xffffff, 0.4);
+    fill.position.set(-4, 2, -3);
+    scene.add(fill);
+
+    controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.08;
+    controls.minDistance = 0.3;
+    controls.maxDistance = 30;
+
+    window.addEventListener("resize", resize);
+  }
+
+  function resize(){
+    if (!renderer) return;
+    const w = container.clientWidth, h = container.clientHeight;
+    if (!w || !h) return;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  }
+
+  function loop(){
+    rafId = requestAnimationFrame(loop);
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  function startLoop(){ if (rafId == null) loop(); }
+  function stopLoop(){ if (rafId != null){ cancelAnimationFrame(rafId); rafId = null; } }
+
+  function setStatus(msg){
+    statusEl.textContent = msg || "";
+    statusEl.style.display = msg ? "flex" : "none";
+  }
+
+  function disposeMesh(){
+    if (!currentMesh) return;
+    scene.remove(currentMesh);
+    currentMesh.traverse(obj => {
+      if (obj.geometry) obj.geometry.dispose();
+      const mats = obj.material ? (Array.isArray(obj.material) ? obj.material : [obj.material]) : [];
+      mats.forEach(m => m.dispose());
+    });
+    currentMesh = null;
+  }
+
+  function frameCamera(object){
+    const box = new THREE.Box3().setFromObject(object);
+    const size = box.getSize(new THREE.Vector3());
+    const center = box.getCenter(new THREE.Vector3());
+    const maxDim = Math.max(size.x, size.y, size.z) || 1;
+    object.position.sub(center);
+    const dist = maxDim * 1.8;
+    camera.position.set(dist * 0.6, dist * 0.45, dist * 0.9);
+    camera.near = maxDim / 100;
+    camera.far = maxDim * 50;
+    camera.updateProjectionMatrix();
+    controls.target.set(0, 0, 0);
+    controls.update();
+  }
+
+  function loadImage(url){
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = () => reject(new Error("failed to load " + url));
+      img.src = url;
+    });
+  }
+
+  async function urlExists(url){
+    try {
+      const res = await fetch(url, { method:"HEAD", cache:"no-store" });
+      return res.ok;
+    } catch(e){ return false; }
+  }
+
+  async function loadMaskFor(species, base){
+    if (maskCache.has(species)) return maskCache.get(species);
+
+    const maskImg = await loadImage(base + "mask.png");
+    const off = document.createElement("canvas");
+    off.width = maskImg.naturalWidth; off.height = maskImg.naturalHeight;
+    const octx = off.getContext("2d");
+    octx.drawImage(maskImg, 0, 0);
+    const mask = octx.getImageData(0, 0, off.width, off.height);
+
+    let detail = null;
+    try {
+      const detailImg = await loadImage(base + "detail.png");
+      const doff = document.createElement("canvas");
+      doff.width = off.width; doff.height = off.height;
+      const dctx = doff.getContext("2d");
+      dctx.drawImage(detailImg, 0, 0, off.width, off.height);
+      detail = dctx.getImageData(0, 0, off.width, off.height);
+    } catch(e){ /* detail.png is optional */ }
+
+    const entry = { mask, detail, width: off.width, height: off.height };
+    maskCache.set(species, entry);
+    return entry;
+  }
+
+  function hexToRgb(hex){
+    return [parseInt(hex.slice(0,2),16), parseInt(hex.slice(2,4),16), parseInt(hex.slice(4,6),16)];
+  }
+
+  function recolorNow(){
+    recolorScheduled = false;
+    if (!maskEntry || !currentMesh) return;
+
+    const { mask, detail, width, height } = maskEntry;
+    if (!outCanvas){
+      outCanvas = document.createElement("canvas");
+      outCtx = outCanvas.getContext("2d");
+    }
+    if (outCanvas.width !== width || outCanvas.height !== height){
+      outCanvas.width = width; outCanvas.height = height;
+    }
+
+    const src = mask.data;
+    const out = outCtx.createImageData(width, height);
+    const dst = out.data;
+    const segRgb = currentColorsHex.map(hexToRgb);
+
+    for (let i = 0; i < src.length; i += 4){
+      const r = src[i], g = src[i+1], b = src[i+2], a = src[i+3];
+      let bestIdx = 0, bestDist = Infinity;
+      for (let k = 0; k < KEY_COLORS.length; k++){
+        const kr = KEY_COLORS[k].rgb;
+        const dr = r - kr[0], dg = g - kr[1], db = b - kr[2];
+        const dist = dr*dr + dg*dg + db*db;
+        if (dist < bestDist){ bestDist = dist; bestIdx = k; }
+      }
+      let [cr, cg, cb] = segRgb[bestIdx];
+      if (detail){
+        const dl = detail.data[i] / 255;
+        cr = Math.round(cr * dl); cg = Math.round(cg * dl); cb = Math.round(cb * dl);
+      }
+      dst[i] = cr; dst[i+1] = cg; dst[i+2] = cb; dst[i+3] = a;
+    }
+    outCtx.putImageData(out, 0, 0);
+
+    if (!texture){
+      texture = new THREE.CanvasTexture(outCanvas);
+      texture.colorSpace = THREE.SRGBColorSpace;
+    } else {
+      texture.needsUpdate = true;
+    }
+
+    currentMesh.traverse(obj => {
+      if (!obj.isMesh || !obj.material) return;
+      const mats = Array.isArray(obj.material) ? obj.material : [obj.material];
+      mats.forEach(m => {
+        m.map = texture;
+        m.color.set(0xffffff);
+        m.needsUpdate = true;
+      });
+    });
+  }
+
+  function scheduleRecolor(){
+    if (recolorScheduled) return;
+    recolorScheduled = true;
+    requestAnimationFrame(recolorNow);
+  }
+
+  async function setSpecies(species){
+    if (species === currentSpecies) return;
+    currentSpecies = species;
+    const token = ++loadToken;
+
+    disposeMesh();
+    texture = null;
+    maskEntry = null;
+    setStatus("Loading model…");
+
+    const base = `models/${encodeURIComponent(species)}/`;
+    const objOk = await urlExists(base + "model.obj");
+    if (token !== loadToken) return;
+    if (!objOk){
+      setStatus(`No 3D model yet for ${species}.`);
+      return;
+    }
+
+    try {
+      let materials = null;
+      try {
+        materials = await new MTLLoader().loadAsync(base + "model.mtl");
+        materials.preload();
+      } catch(e){ /* proceed without an mtl */ }
+      if (token !== loadToken) return;
+
+      const objLoader = new OBJLoader();
+      if (materials) objLoader.setMaterials(materials);
+      const obj = await objLoader.loadAsync(base + "model.obj");
+      if (token !== loadToken) return;
+
+      const mask = await loadMaskFor(species, base);
+      if (token !== loadToken) return;
+
+      maskEntry = mask;
+      currentMesh = obj;
+      scene.add(obj);
+      frameCamera(obj);
+      setStatus("");
+      recolorNow();
+    } catch (err){
+      if (token !== loadToken) return;
+      console.error("SkinForge3D: failed to load model for", species, err);
+      setStatus(`Couldn't load the 3D model for ${species}.`);
+    }
+  }
+
+  function setColors(hexArray){
+    currentColorsHex = hexArray;
+    if (currentMesh && maskEntry) scheduleRecolor();
+  }
+
+  function setActive(isActive){
+    active = isActive;
+    if (active){ resize(); startLoop(); }
+    else stopLoop();
+  }
+
+  initScene();
+  setStatus("Select the 3D Model tab to preview.");
+
+  window.SkinForge3D = { setSpecies, setColors, setActive };
+  window.syncTo3D?.(); // pick up state the legacy script already rendered before we were ready
 })();
 </script>
 </body>
