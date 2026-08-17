@@ -128,6 +128,115 @@
     padding: 24px;
     border-top: 1px dashed var(--panel-border);
   }
+  .card.guide-trigger {
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+    width: 100%;
+  }
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(4, 8, 5, 0.82);
+    z-index: 50;
+    padding: 24px;
+    overflow-y: auto;
+  }
+  .modal-overlay.show {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .modal-box {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-top: 3px solid var(--amber);
+    border-radius: 6px;
+    max-width: 640px;
+    width: 100%;
+    margin: 24px auto;
+    padding: 28px 28px 22px;
+    position: relative;
+  }
+  .modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: none;
+    border: 1px solid var(--panel-border);
+    color: var(--text-dim);
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .modal-close:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+  .modal-box .kicker {
+    font-family: "Courier New", monospace;
+    letter-spacing: 2px;
+    font-size: 12px;
+    color: var(--green);
+    margin-bottom: 8px;
+  }
+  .modal-box h2 {
+    margin: 0 0 20px;
+    font-family: Georgia, serif;
+    color: var(--amber);
+    font-size: 24px;
+    letter-spacing: 0.5px;
+  }
+  .guide-step {
+    display: flex;
+    gap: 14px;
+    padding: 16px 0;
+    border-top: 1px dashed var(--panel-border);
+  }
+  .guide-step:first-of-type {
+    border-top: none;
+    padding-top: 0;
+  }
+  .guide-step .num {
+    flex: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--amber-dim);
+    color: var(--amber);
+    font-family: "Courier New", monospace;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+  }
+  .guide-step h3 {
+    margin: 2px 0 6px;
+    color: var(--amber);
+    font-size: 15px;
+  }
+  .guide-step p {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--text-dim);
+  }
+  .modal-box .credit {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--panel-border);
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    text-align: center;
+  }
+  .modal-box .credit a {
+    color: var(--green);
+  }
 </style>
 </head>
 <body>
@@ -156,8 +265,49 @@
       <div class="view">MỞ CÔNG CỤ →</div>
     </a>
 
+    <button type="button" class="card guide-trigger" id="openGuide">
+      <div class="icon">📋</div>
+      <div class="name">Hướng Dẫn Nhanh</div>
+      <div class="tagline">Vài mẹo nhập môn dành cho người chơi mới trước khi bước vào The Isle: Evrima.</div>
+      <div class="view">XEM MẸO →</div>
+    </button>
+
   </div>
 </main>
+
+<div class="modal-overlay" id="guideOverlay">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="guideTitle">
+    <button type="button" class="modal-close" id="closeGuide" aria-label="Đóng">✕</button>
+    <div class="kicker">DÀNH CHO NGƯỜI MỚI</div>
+    <h2 id="guideTitle">Hướng Dẫn Nhanh</h2>
+
+    <div class="guide-step">
+      <div class="num">1</div>
+      <div>
+        <h3>Làm quen với những điều cơ bản</h3>
+        <p>Cài đặt đồ họa tối ưu, chế độ ăn, các biểu tượng và ý nghĩa của chúng, menu trong game, đột biến (mutation), và còn nhiều thứ khác — The Isle có rất nhiều thứ để khám phá, nhưng cũng dễ khiến bạn mắc sai lầm nếu chưa hiểu rõ mình đang làm gì. Biết cách di chuyển, tìm thức ăn trước khi bị đói, và giao tiếp với người chơi khác là điều sống còn để tồn tại.</p>
+      </div>
+    </div>
+
+    <div class="guide-step">
+      <div class="num">2</div>
+      <div>
+        <h3>Bắt đầu với một loài ăn cỏ</h3>
+        <p>Dù bạn nóng lòng muốn lao thẳng vào rừng với vai một loài ăn thịt, tốt hơn hết hãy bắt đầu với một loài ăn cỏ như Pachy. Vì sao? Bạn sẽ không dễ bị đói, và thức ăn cũng dễ tìm hơn nhiều. Pachycephalosaurus (Pachy) còn rất nhanh nhẹn, tốc độ tốt và dễ điều khiển. Chỉ trong 45 phút, bạn đã có một con khủng long trưởng thành, chắc khỏe và chơi rất thú vị. (Sẵn sàng húc đầu!)</p>
+      </div>
+    </div>
+
+    <div class="guide-step">
+      <div class="num">3</div>
+      <div>
+        <h3>Chơi cùng nhau theo nhóm/bầy đàn</h3>
+        <p>Như lời khuyên trên màn hình tải game đã nói rất đúng: "Chơi theo nhóm có thể tăng đáng kể cơ hội sống sót của bạn!" Ngoài ra, nên sử dụng kênh thoại Discord để liên lạc mà không làm lộ vị trí của mình.</p>
+      </div>
+    </div>
+
+    <div class="credit">Nguồn: <a href="https://www.theisle-game.com/en/info" target="_blank" rel="noopener noreferrer">theisle-game.com</a></div>
+  </div>
+</div>
 
 <div class="banner">
   <a href="https://gamemonitoring.net/the-isle/servers/13772925" target="_blank" rel="noopener noreferrer">
@@ -168,6 +318,26 @@
 <footer>
   THE ISLE GUIDE — TÀI NGUYÊN CỘNG ĐỒNG TIẾNG VIỆT
 </footer>
+
+<script>
+(function(){
+  var overlay = document.getElementById("guideOverlay");
+  var openBtn = document.getElementById("openGuide");
+  var closeBtn = document.getElementById("closeGuide");
+
+  function open(){ overlay.classList.add("show"); }
+  function close(){ overlay.classList.remove("show"); }
+
+  openBtn.addEventListener("click", open);
+  closeBtn.addEventListener("click", close);
+  overlay.addEventListener("click", function(e){
+    if (e.target === overlay) close();
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape") close();
+  });
+})();
+</script>
 
 </body>
 </html>
