@@ -992,8 +992,21 @@
   var statsEl = document.getElementById("dinoStats");
   var abilitiesEl = document.getElementById("dinoAbilities");
   var pdfLinkEl = document.getElementById("dinoPdfLink");
+  var kickerEl = document.getElementById("dinoKicker");
   var modelHintEl = document.getElementById("dinoModelHint");
   var baseHintText = modelHintEl.textContent;
+
+  // Each species card sits in a .grid preceded by a .section-title
+  // ("⚠ ĂN THỊT · CARNIVORES", "⚠ ĂN CỎ · HERBIVORES", "⚠ ĂN TẠP · OMNIVORES") —
+  // reuse that as the source of truth for the popup's category kicker instead
+  // of hardcoding it, so herbivores/omnivores don't show "ĂN THỊT".
+  function categoryLabelFor(key){
+    var btn = document.querySelector('.guide-trigger[data-dino="' + key + '"]');
+    var grid = btn && btn.closest(".grid");
+    var sectionTitle = grid && grid.previousElementSibling;
+    if (!sectionTitle) return "";
+    return sectionTitle.textContent.split("·")[0].replace("⚠", "").trim();
+  }
 
   // ---------- Skin Code Forge bridge ----------
   // Skin Code Forge (../skincode-generator/) writes the last camo the user
@@ -1050,6 +1063,8 @@
     modelEl.alt = d.name;
     titleEl.textContent = d.name;
     ledeEl.textContent = d.lede;
+    var category = categoryLabelFor(key);
+    kickerEl.textContent = category ? "HỒ SƠ SINH VẬT · " + category : "HỒ SƠ SINH VẬT";
     // model-viewer only fires "load" on an actual (re)load — reassigning the
     // same src (e.g. reopening a popup you already had open) is a no-op, so
     // also apply eagerly in case the model is already loaded right now.
