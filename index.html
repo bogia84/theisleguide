@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Isle: Evrima — Hướng Dẫn Tiếng Việt</title>
+<style>
+  :root {
+    --bg: #0c130d;
+    --panel: #16201a;
+    --panel-border: #3a4a3a;
+    --amber: #f2b705;
+    --amber-dim: #6b4d00;
+    --text: #e8dfc4;
+    --text-dim: #9c8a55;
+    --green: #7fae7a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.5;
+  }
+  .stripe {
+    height: 10px;
+    background: repeating-linear-gradient(-45deg, var(--amber), var(--amber) 12px, #111 12px, #111 24px);
+  }
+  header {
+    background: #000;
+    border-bottom: 3px solid var(--amber);
+    padding: 40px 24px 34px;
+    text-align: center;
+  }
+  header .kicker {
+    font-family: "Courier New", monospace;
+    letter-spacing: 2px;
+    font-size: 12px;
+    color: var(--green);
+    margin-bottom: 10px;
+  }
+  header h1 {
+    margin: 0 0 10px;
+    font-size: clamp(32px, 6vw, 54px);
+    font-family: Georgia, serif;
+    font-weight: 700;
+    color: var(--amber);
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 var(--amber-dim), 0 0 24px rgba(242,183,5,0.35);
+  }
+  header p {
+    max-width: 620px;
+    margin: 0 auto;
+    color: var(--text-dim);
+    font-size: 14px;
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-top: 3px solid var(--amber);
+    border-radius: 4px;
+    padding: 24px;
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: var(--amber);
+    box-shadow: 0 6px 18px rgba(242, 183, 5, 0.12);
+  }
+  .card .icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+  }
+  .card .name {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--amber);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .card .tagline {
+    font-size: 13px;
+    color: var(--text-dim);
+    flex-grow: 1;
+    margin-bottom: 16px;
+  }
+  .card .view {
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    color: #0c130d;
+    background: var(--amber);
+    padding: 7px 10px;
+    border-radius: 2px;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+  footer {
+    text-align: center;
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    padding: 24px;
+    border-top: 1px dashed var(--panel-border);
+  }
+</style>
+</head>
+<body>
+<div class="stripe"></div>
+
+<header>
+  <div class="kicker">INGEN GENETIC ARCHIVES · TRUNG TÂM TÀI NGUYÊN</div>
+  <h1>THE ISLE: EVRIMA</h1>
+  <p>Bộ tài nguyên tiếng Việt cho The Isle: Evrima — hướng dẫn sinh vật và công cụ tạo mã da (skin code).</p>
+</header>
+
+<main>
+  <div class="grid">
+
+    <a class="card" href="dino/">
+      <div class="icon">🦖</div>
+      <div class="name">Hướng Dẫn Sinh Vật</div>
+      <div class="tagline">Chỉ số tăng trưởng, dinh dưỡng, kỹ năng chiến đấu và chiến thuật sinh tồn cho từng loài trong game.</div>
+      <div class="view">XEM HƯỚNG DẪN →</div>
+    </a>
+
+    <a class="card" href="skincode-generator/">
+      <div class="icon">🎨</div>
+      <div class="name">Skin Code Generator</div>
+      <div class="tagline">Tạo và xem trước mã da (camo) sáu phân đoạn, sau đó sao chép chuỗi xuất để dùng trong game.</div>
+      <div class="view">MỞ CÔNG CỤ →</div>
+    </a>
+
+  </div>
+</main>
+
+<footer>
+  THE ISLE GUIDE — TÀI NGUYÊN CỘNG ĐỒNG TIẾNG VIỆT
+</footer>
+
+</body>
+</html>
