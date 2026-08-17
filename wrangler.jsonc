@@ -1,0 +1,9 @@
+{
+    // Must match the Worker name shown in the Cloudflare dashboard.
+    "name": "the-isle-guide",
+    "compatibility_date": "2026-08-17",
+    "assets": {
+        "directory": ".",
+        "binding": "ASSETS"
+    }
+}
