@@ -1,2 +1,6 @@
 .wrangler/
 node_modules/
+
+# 3D model assets are deployed straight to Cloudflare via wrangler and are
+# too large/numerous to keep in git history — see dino/images/models/README.md
+dino/images/models/*.glb
