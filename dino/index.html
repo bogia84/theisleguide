@@ -174,6 +174,145 @@
     padding: 24px;
     border-top: 1px dashed var(--panel-border);
   }
+  .card.guide-trigger {
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+    width: 100%;
+    border: 1px solid var(--panel-border);
+    border-top: 3px solid var(--amber);
+  }
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(4, 8, 5, 0.82);
+    z-index: 50;
+    padding: 24px;
+    overflow-y: auto;
+  }
+  .modal-overlay.show {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .modal-box {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-top: 3px solid var(--amber);
+    border-radius: 6px;
+    max-width: 700px;
+    width: 100%;
+    margin: 24px auto;
+    padding: 0 0 22px;
+    position: relative;
+  }
+  .modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid var(--panel-border);
+    color: var(--text-dim);
+    width: 32px;
+    height: 32px;
+    border-radius: 3px;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+  }
+  .modal-close:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+  .modal-hero {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+    border-radius: 6px 6px 0 0;
+    border-bottom: 1px solid var(--panel-border);
+  }
+  .modal-body {
+    padding: 24px 28px 0;
+  }
+  .modal-box .kicker {
+    font-family: "JetBrains Mono", "Courier New", monospace;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 12px;
+    color: var(--green);
+    margin-bottom: 8px;
+  }
+  .modal-box h2 {
+    margin: 0 0 16px;
+    font-family: Georgia, serif;
+    color: var(--amber);
+    font-size: 26px;
+    letter-spacing: 0.5px;
+  }
+  .modal-box .lede {
+    font-size: 13.5px;
+    color: var(--text);
+    margin: 0 0 18px;
+  }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .stat-grid .stat-box {
+    background: #1c2a1e;
+    border: 1px solid var(--panel-border);
+    border-radius: 3px;
+    padding: 8px 10px;
+  }
+  .stat-grid .stat-box .label {
+    font-family: "JetBrains Mono", "Courier New", monospace;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    color: var(--text-dim);
+  }
+  .stat-grid .stat-box .value {
+    font-family: "JetBrains Mono", "Courier New", monospace;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--amber);
+  }
+  .modal-box h3.section {
+    margin: 20px 0 8px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: var(--green);
+    font-family: "JetBrains Mono", "Courier New", monospace;
+    border-bottom: 1px dashed var(--panel-border);
+    padding-bottom: 6px;
+  }
+  .ability-list {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  .ability-list li {
+    margin-bottom: 7px;
+  }
+  .modal-box .credit {
+    margin: 20px 0 0;
+    padding-top: 14px;
+    border-top: 1px dashed var(--panel-border);
+    font-family: "JetBrains Mono", "Courier New", monospace;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--text-dim);
+    text-align: center;
+  }
+  .modal-box .credit a {
+    color: var(--green);
+  }
 </style>
 </head>
 <body>
@@ -206,75 +345,75 @@
       <div class="view">XEM HƯỚNG DẪN →</div>
     </a>
 
-    <a class="card" href="Carnivores_Carnotaurus_Tieng_Viet.pdf">
+    <button type="button" class="card guide-trigger" data-dino="carnotaurus">
       <div class="icon">🐆</div>
       <div class="name">Carnotaurus</div>
       <div class="tagline">Cỡ trung, chuyên tốc độ và những đợt bứt phá sức mạnh đột ngột.</div>
       <div class="stats"><span class="stat"><b>HP</b> ~2.170</span><span class="stat"><b>DMG</b> 200</span><span class="stat"><b>TĐ</b> 52.2 km/h</span><span class="stat"><b>TT</b> 1g50p</span></div>
-      <div class="view">XEM HƯỚNG DẪN →</div>
-    </a>
+      <div class="view">XEM HỒ SƠ →</div>
+    </button>
 
-    <a class="card" href="Carnivores_Ceratosaurus_Tieng_Viet.pdf">
+    <button type="button" class="card guide-trigger" data-dino="ceratosaurus">
       <div class="icon">🦴</div>
       <div class="name">Ceratosaurus</div>
       <div class="tagline">Đa năng — vừa là thợ săn vừa là loài ăn xác bền bỉ.</div>
       <div class="stats"><span class="stat"><b>HP</b> ~2.250</span><span class="stat"><b>DMG</b> 350</span><span class="stat"><b>TĐ</b> 36.6 km/h</span><span class="stat"><b>TT</b> 2g30p</span></div>
-      <div class="view">XEM HƯỚNG DẪN →</div>
-    </a>
+      <div class="view">XEM HỒ SƠ →</div>
+    </button>
 
-    <a class="card" href="Carnivores_Deinosuchus_Tieng_Viet.pdf">
+    <button type="button" class="card guide-trigger" data-dino="deinosuchus">
       <div class="icon">🐊</div>
       <div class="name">Deinosuchus</div>
       <div class="tagline">Cá sấu khổng lồ chuyên phục kích và ghì chặt con mồi dưới nước.</div>
-      <div class="view">XEM HƯỚNG DẪN →</div>
-    </a>
+      <div class="view">XEM HỒ SƠ →</div>
+    </button>
 
-    <a class="card" href="Carnivores_Dilophosaurus_Tieng_Viet.pdf">
+    <button type="button" class="card guide-trigger" data-dino="dilophosaurus">
       <div class="icon">☠️</div>
       <div class="name">Dilophosaurus</div>
       <div class="tagline">Nhỏ, nhanh nhẹn, gây ảo giác cho con mồi bằng nọc độc.</div>
       <div class="stats"><span class="stat"><b>HP</b> ~1.200</span><span class="stat"><b>DMG</b> 150</span><span class="stat"><b>TĐ</b> 42.8 km/h</span><span class="stat"><b>TT</b> 1g30p</span></div>
-      <div class="view">XEM HƯỚNG DẪN →</div>
-    </a>
+      <div class="view">XEM HỒ SƠ →</div>
+    </button>
 
-    <a class="card" href="Carnivores_Herrerasaurus_Tieng_Viet.pdf">
+    <button type="button" class="card guide-trigger" data-dino="herrerasaurus">
       <div class="icon">🦎</div>
       <div class="name">Herrerasaurus</div>
       <div class="tagline">Săn mồi cơ hội, nhanh nhẹn, thích nghi tốt với săn mồi và ăn xác.</div>
       <div class="stats"><span class="stat"><b>HP</b> ~850</span><span class="stat"><b>DMG</b> 120</span><span class="stat"><b>TĐ</b> 43 km/h</span><span class="stat"><b>TT</b> 1g30p</span></div>
-      <div class="view">XEM HƯỚNG DẪN →</div>
-    </a>
+      <div class="view">XEM HỒ SƠ →</div>
+    </button>
 
-    <a class="card" href="Carnivores_Omniraptor_Tieng_Viet.pdf">
+    <button type="button" class="card guide-trigger" data-dino="omniraptor">
       <div class="icon">🐦</div>
       <div class="name">Omniraptor</div>
       <div class="tagline">Nhỏ nhưng cực kỳ thích nghi, vượt trội về tốc độ và vồ ghim.</div>
-      <div class="view">XEM HƯỚNG DẪN →</div>
-    </a>
+      <div class="view">XEM HỒ SƠ →</div>
+    </button>
 
-    <a class="card" href="Carnivores_Pteranodon_Tieng_Viet.pdf">
+    <button type="button" class="card guide-trigger" data-dino="pteranodon">
       <div class="icon">🦇</div>
       <div class="name">Pteranodon</div>
       <div class="tagline">Thằn lằn bay cỡ lớn, thống trị bầu trời nhưng yếu trên mặt đất.</div>
       <div class="stats"><span class="stat"><b>HP</b> ~520</span><span class="stat"><b>DMG</b> 40</span><span class="stat"><b>TĐ</b> 58 km/h</span><span class="stat"><b>TT</b> 1g</span></div>
-      <div class="view">XEM HƯỚNG DẪN →</div>
-    </a>
+      <div class="view">XEM HỒ SƠ →</div>
+    </button>
 
-    <a class="card" href="Carnivores_Troodon_Tieng_Viet.pdf">
+    <button type="button" class="card guide-trigger" data-dino="troodon">
       <div class="icon">🌙</div>
       <div class="name">Troodon</div>
       <div class="tagline">Săn mồi về đêm, dùng nọc độc để làm suy yếu con mồi.</div>
       <div class="stats"><span class="stat"><b>HP</b> ~300</span><span class="stat"><b>DMG</b> 40</span><span class="stat"><b>TĐ</b> 45 km/h</span><span class="stat"><b>TT</b> 50p</span></div>
-      <div class="view">XEM HƯỚNG DẪN →</div>
-    </a>
+      <div class="view">XEM HỒ SƠ →</div>
+    </button>
 
-    <a class="card" href="Carnivores_Tyrannosaurus_Tieng_Viet.pdf">
+    <button type="button" class="card guide-trigger" data-dino="tyrannosaurus">
       <div class="icon">👑</div>
       <div class="name">Tyrannosaurus</div>
       <div class="tagline">Kẻ săn mồi đỉnh cao lớn nhất — biểu tượng sức mạnh và thống trị.</div>
       <div class="stats"><span class="stat"><b>HP</b> ~5.200</span><span class="stat"><b>DMG</b> 550</span><span class="stat"><b>TĐ</b> 33 km/h</span><span class="stat"><b>TT</b> 3g40p</span></div>
-      <div class="view">XEM HƯỚNG DẪN →</div>
-    </a>
+      <div class="view">XEM HỒ SƠ →</div>
+    </button>
 
   </div>
 
@@ -374,10 +513,284 @@
   </div>
 </main>
 
+<div class="modal-overlay" id="dinoOverlay">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="dinoTitle">
+    <button type="button" class="modal-close" id="dinoClose" aria-label="Đóng">✕</button>
+    <img class="modal-hero" id="dinoImg" src="" alt="">
+    <div class="modal-body">
+      <div class="kicker" id="dinoKicker">HỒ SƠ SINH VẬT · ĂN THỊT</div>
+      <h2 id="dinoTitle"></h2>
+      <p class="lede" id="dinoLede"></p>
+
+      <div class="stat-grid" id="dinoStats"></div>
+
+      <h3 class="section">TẬP TÍNH & CƠ CHẾ</h3>
+      <ul class="ability-list" id="dinoAbilities"></ul>
+
+      <div class="credit">Nguồn: <a href="https://www.theisle-game.com/en/dinosaurs/carnivores" target="_blank" rel="noopener noreferrer">theisle-game.com</a> — bản dịch tiếng Việt</div>
+    </div>
+  </div>
+</div>
+
 <footer>
   BIÊN SOẠN TỪ EVRIMAQUICKGUIDE.COM — BẢN DỊCH TIẾNG VIỆT<br>
   CHỈ SỐ HP / DMG / TĐ / TT (THỜI GIAN TRƯỞNG THÀNH) THAM KHẢO TỪ XGAMINGSERVER.COM — HP LÀ SỐ ƯỚC TÍNH, CHƯA XÁC THỰC
 </footer>
+
+<script>
+(function(){
+  var DINO_DATA = {
+    deinosuchus: {
+      name: "Deinosuchus",
+      img: "images/carnivores/deinosuchus.jpg",
+      lede: "Bạn sẽ có lý do để sợ hãi vùng nước sâu khi những kẻ săn mồi dưới nước lang thang trên các tuyến đường thủy của Isla Spiro. Hãy hết sức cẩn thận khi đến gần các vùng nước.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "8.000 kg"],
+        ["TỐC ĐỘ CHẠY", "18 km/h"],
+        ["LỰC CẮN", "500 N"],
+        ["GIỚI HẠN BẦY", "2"],
+        ["TT TRƯỞNG THÀNH", "6–12 giờ"],
+        ["TRỨNG TỐI ĐA/Ổ", "4"]
+      ],
+      abilities: [
+        "Phải nặng gấp đôi mục tiêu mới có thể tóm được — ngưỡng này còn tăng thêm khi ở dưới nước.",
+        "Là loài khủng long chậm nhất trên cạn: xoay người kém và dễ chịu sát thương rơi cao hơn.",
+        "Không thể chạy nước rút trên cạn khi đang giữ con mồi.",
+        "Dưới nước: bơi tối đa 500m ở tốc độ 30 km/h trong khoảng 1 phút trước khi kiệt sức, cần 5 phút để hồi phục.",
+        "Bơi trên mặt nước: tối đa 450m ở tốc độ 27 km/h.",
+        "Tiếng gọi bạn tình không hiệu quả dưới nước — phải nổi lên mặt nước để ve vãn.",
+        "Không bị phạt vì ăn quá no và không thể lăn bùn.",
+        "Không thể dùng phím Q để phát hiện sinh vật khác dưới nước.",
+        "Được xem là loài khó chơi nhất trong game, với thời gian trưởng thành dài nhất."
+      ]
+    },
+    tyrannosaurus: {
+      name: "Tyrannosaurus Rex",
+      img: "images/carnivores/t-rex.jpg",
+      lede: "Tyrannosaurus Rex sẽ là một trong những kẻ săn mồi hàng đầu của game The Isle. Theo trang hồ sơ gốc, T-Rex vẫn đang trong quá trình hoàn thiện nên nhiều chỉ số chi tiết chưa được công bố đầy đủ.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "> 9.000 kg"],
+        ["TỐC ĐỘ CHẠY", "chưa công bố"],
+        ["LỰC CẮN", "chưa công bố"],
+        ["GIỚI HẠN BẦY", "2"],
+        ["TT TRƯỞNG THÀNH", "chưa công bố"],
+        ["TRỨNG TỐI ĐA/Ổ", "chưa công bố"]
+      ],
+      abilities: [
+        "Được định vị là một trong những kẻ săn mồi đỉnh cao nhất khi hoàn thiện, cùng hạng với Tyrannosaurus ngoài đời thực.",
+        "Trang hồ sơ chính thức ghi các chỉ số tốc độ, lực cắn, thời gian trưởng thành và số trứng/ổ là “tbd” (sẽ cập nhật khi có bản chính thức)."
+      ]
+    },
+    herrerasaurus: {
+      name: "Herrerasaurus",
+      img: "images/carnivores/herrerasaurus.jpg",
+      lede: "Một loài ăn thịt nhỏ, dễ bị tổn thương trước những khủng long lớn hơn. Con mồi ưa thích gồm Dryosaurus và Psittacosaurus — nhờ tốc độ và khả năng rình rập, nó có thể hạ gục dễ dàng các loài ăn cỏ nhỏ, dù việc ăn xác cũng tiềm ẩn rủi ro từ những kẻ săn mồi lớn hơn.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "175 kg"],
+        ["TỐC ĐỘ CHẠY", "45 km/h"],
+        ["LỰC CẮN", "30 N"],
+        ["GIỚI HẠN BẦY", "8"],
+        ["TT TRƯỞNG THÀNH", "≥ 1g20p"],
+        ["TRỨNG TỐI ĐA/Ổ", "6"]
+      ],
+      abilities: [
+        "Leo được hàng rào, núi và cây.",
+        "Sát thương đòn vồ (pounce) tỉ lệ theo trọng lượng mục tiêu.",
+        "Có thể lặn dưới nước kèm khả năng nhìn đêm, nín thở được khoảng 25 giây.",
+        "Túi da cổ (dewlap): kích hoạt bằng F + chuột phải, chỉ các Herrerasaurus khác nhìn thấy được — màu vàng là con đực, màu xanh lá là con cái.",
+        "Tấn công từ trên cao: giữ chuột phải rồi nhấn phím cách để bổ nhào xuống mục tiêu.",
+        "Cắn nhanh bằng ALT + chuột trái, cắn thường bằng chuột trái — gây sát thương chảy máu nặng.",
+        "Leo trèo: nhắm bằng chuột phải, nhảy bằng phím cách, giữ Shift để leo nhanh; có cơ chế bám dính tự động chống rơi khi nhắm trượt."
+      ]
+    },
+    dilophosaurus: {
+      name: "Dilophosaurus",
+      img: "images/carnivores/dilophosaurus.jpg",
+      lede: "Nhanh nhẹn và nhỏ con, Dilophosaurus là thợ săn về đêm sở hữu khả năng nhìn đêm tốt nhất và gây sát thương chảy máu mạnh nhất. Nó nhắm vào các loài ăn cỏ nhỏ và AI như Orodromeus, Psittacosaurus, có thể đối đầu các loài ăn thịt nhỏ như Utahraptor nhưng dễ bị đe dọa bởi những kẻ săn mồi lớn hơn.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "700 kg"],
+        ["TỐC ĐỘ CHẠY", "47.5 km/h"],
+        ["LỰC CẮN", "75 N"],
+        ["GIỚI HẠN BẦY", "4"],
+        ["TT TRƯỞNG THÀNH", "≥ 1g45p"],
+        ["TRỨNG TỐI ĐA/Ổ", "6"]
+      ],
+      abilities: [
+        "Tốc độ đi, xoay người và chạy đều tốt, cùng lượng thể lực dồi dào.",
+        "Đòn tấn công cơ bản (chuột trái) cực nhanh; bản sao ảo (clone) hồi chiêu khoảng 10 giây.",
+        "Dễ bị tổn thương bởi sát thương chảy máu.",
+        "Chuột phải: triệu hồi bản sao khi mục tiêu đã trúng độc hoàn toàn (dấu hiệu màu tím).",
+        "ALT + chuột trái: cắn nhanh kèm xoay người gấp.",
+        "Mục tiêu trúng độc bị thu hẹp tầm nhìn, ảo giác, và bị các bản sao ảo của Dilophosaurus tấn công — bản sao biến mất khi bị đánh trúng hoặc sau khi tấn công mục tiêu. Tấn công vào đầu tích lũy ảo giác hiệu quả nhất."
+      ]
+    },
+    ceratosaurus: {
+      name: "Ceratosaurus",
+      img: "images/carnivores/ceratosaurus.jpg",
+      lede: "Một loài ăn thịt mạnh mẽ, dễ nhận biết nhờ cặp sừng mũi đặc trưng và hệ tiêu hóa cực kỳ bền bỉ.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "1.300 kg"],
+        ["TỐC ĐỘ CHẠY", "40.2 km/h"],
+        ["LỰC CẮN", "150 N"],
+        ["GIỚI HẠN BẦY", "4"],
+        ["TT TRƯỞNG THÀNH", "≥ 2g05p"],
+        ["TRỨNG TỐI ĐA/Ổ", "4"]
+      ],
+      abilities: [
+        "Không thể nhảy.",
+        "Hiển thị vi khuẩn khi ăn; giảm sát thương nhận vào trong lúc đang ăn.",
+        "Nôn mửa giúp đẩy nhanh quá trình phân hủy xác trong bán kính 15m, nhanh gấp 5 lần bình thường.",
+        "Có thể gây nôn cho khủng long khác thông qua vết cắn (bile).",
+        "Miễn nhiễm với hiệu ứng vi khuẩn; có phạm vi đánh hơi xa nhất trong tất cả các loài, càng nhạy hơn khi phát hiện thịt thối. Có thể ngửi thấy mùi nôn mửa nhưng bản thân không thể tự nôn.",
+        "Chuột phải (cắn tích lực): trúng đầu khi tích đủ lực gây 517.5 sát thương.",
+        "ALT + chuột trái (cắn xoay 360°): 150 sát thương cơ bản / 300 khi trúng đầu.",
+        "Chuột trái (cắn thường): 150 sát thương cơ bản / 225 khi trúng đầu.",
+        "Buff cơ thể: tự động giảm sát thương (0%, 25% hoặc 50%) khi ở trong bán kính 30m quanh xác nặng từ 130kg trở lên."
+      ]
+    },
+    troodon: {
+      name: "Troodon",
+      img: "images/carnivores/troodon.jpg",
+      lede: "Sinh vật nhanh nhẹn này không quá nguy hiểm khi đi một mình, nhưng vết cắn có độc của nó có thể gây rắc rối lớn cho nhiều loài nếu hành động theo nhóm phối hợp. Nó có thể bắt chước một số âm thanh, vì vậy hãy luôn cẩn trọng.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "45 kg"],
+        ["TỐC ĐỘ CHẠY", "28.5 km/h"],
+        ["LỰC CẮN", "15 N"],
+        ["GIỚI HẠN BẦY", "10"],
+        ["TT TRƯỞNG THÀNH", "≥ 1g10p"],
+        ["TRỨNG TỐI ĐA/Ổ", "5"]
+      ],
+      abilities: [
+        "Nhảy tốn khoảng 5% thể lực.",
+        "Có lượng HP cao hơn mức cân nặng gợi ý.",
+        "Vồ mồi (pounce): giữ chuột phải để bám vào mục tiêu; có thể nhảy lên bất kỳ phía nào của khủng long, kể cả từ phía sau.",
+        "Hệ thống độc 3 cấp: cần 3 lần vồ cắn phối hợp để đạt trạng thái “Nhiễm độc hoàn toàn”; mục tiêu trúng độc phát sáng xanh dương/xanh lá; ở cấp 3, mục tiêu dễ chịu sát thương hơn.",
+        "Chuột trái: cắn thường. ALT + chuột trái: cắn xoay hướng kèm bước nhảy lao tới."
+      ]
+    },
+    omniraptor: {
+      name: "Omniraptor",
+      img: "images/carnivores/omniraptor.jpg",
+      lede: "Thợ săn theo bầy được ví như “khẩu pháo thủy tinh” với sự tinh ranh và hung hãn, có khả năng đổi hướng nhanh ở tốc độ cao. Bán kính xoay người nhỏ hơn so với các đối thủ như Carnotaurus.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "450 kg"],
+        ["TỐC ĐỘ CHẠY", "46.8 km/h"],
+        ["LỰC CẮN", "65 N"],
+        ["GIỚI HẠN BẦY", "8"],
+        ["TT TRƯỞNG THÀNH", "1g43p–2g24p"],
+        ["TRỨNG TỐI ĐA/Ổ", "4"]
+      ],
+      abilities: [
+        "Vồ mục tiêu lớn hơn: gây chảy máu và sát thương. Vồ mục tiêu nhỏ hơn: ghim chặt xuống đất.",
+        "Không thể vồ mục tiêu đang thực hiện đòn nhảy tấn công; vồ tốn nhiều thể lực; có thể bị hất văng nếu mục tiêu chạy ngang qua vật cản.",
+        "Hiệu quả nhất khi săn theo nhóm phối hợp; có thể vồ từ bất kỳ hướng nào, kể cả từ phía sau.",
+        "Nhảy rất cao để thoát khỏi những khủng long lớn hơn.",
+        "Điểm mạnh: rất nhanh, linh hoạt, nhảy xa, đòn vồ mạnh, đáng gờm khi theo bầy, dự trữ thể lực dồi dào.",
+        "Điểm yếu: thường lép vế khi đấu 1-chọi-1 với khủng long cùng cỡ khác.",
+        "Chiến thuật sinh tồn: gia nhập bầy ngay từ khi còn nhỏ, quản lý thể lực cẩn thận, tránh chạy nước rút khi không cần thiết, phối hợp đòn vồ và tận dụng sát thương chảy máu thay vì cố kết liễu mục tiêu trực diện."
+      ]
+    },
+    pteranodon: {
+      name: "Pteranodon",
+      img: "images/carnivores/pteranodon.jpeg",
+      lede: "Bay lượn trên bầu trời như một trong những sinh vật lộng lẫy nhất trên đảo. Pteranodon có thân hình mong manh, bất lợi khi giao chiến, nhưng bù lại bằng khả năng bay để né tránh. Chế độ ăn chủ yếu là cá và xác thối.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "45 kg"],
+        ["TỐC ĐỘ CHẠY", "28.5 km/h"],
+        ["LỰC CẮN", "20 N"],
+        ["GIỚI HẠN BẦY", "6"],
+        ["TT TRƯỞNG THÀNH", "≥ 1g25p"],
+        ["TRỨNG TỐI ĐA/Ổ", "4"]
+      ],
+      abilities: [
+        "Có thể hồi thể lực khi đang bám (latch), miễn là thanh thể lực còn ít nhất 20%.",
+        "Có thể bay được với mọi loại gãy xương, ngoại trừ gãy chân.",
+        "Không thể mang hoặc thả khủng long khác, nhưng có thể tha cua, ếch, thỏ và gà khi đã trưởng thành.",
+        "Hành vi xin ăn (begging) kết thúc ở mức 18% thể lực đối với con non; con non cũng không thể bắt cá theo đàn.",
+        "Xác và nội tạng của Pteranodon không rơi ra khi bị lắc hoặc bị tấn công.",
+        "Vẫn có thể tiếp tục bay ngay cả khi bị Troodon vồ trúng."
+      ]
+    },
+    carnotaurus: {
+      name: "Carnotaurus",
+      img: "images/carnivores/carnotaurus.jpeg",
+      lede: "Rình rập trên các đồng bằng như cơn ác mộng tuyệt đối của mọi sinh vật nhỏ khi cái hàm khát máu này lao vun vút khắp hòn đảo. Dù thiếu sự linh hoạt của Utahraptor nhanh nhẹn, tốc độ kinh hoàng và khả năng húc ngã đối thủ bù đắp dư thừa cho điều đó. Hãy nhớ nhìn trái phải trước khi băng qua đường!",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "1.300 kg"],
+        ["TỐC ĐỘ CHẠY", "49.5–55.5 km/h"],
+        ["LỰC CẮN", "150 N"],
+        ["GIỚI HẠN BẦY", "3"],
+        ["TT TRƯỞNG THÀNH", "2g50p–5g40p"],
+        ["TRỨNG TỐI ĐA/Ổ", "3"]
+      ],
+      abilities: [
+        "Là loài ăn thịt nhanh nhất trong game khi chạy nước rút.",
+        "Đòn húc (ramming) có thời gian hồi chiêu trước khi dùng lại được.",
+        "Xoay người chậm khi đang chạy.",
+        "Không nên một mình đối đầu với 3 Omniraptor trở lên."
+      ]
+    }
+  };
+
+  var overlay = document.getElementById("dinoOverlay");
+  var closeBtn = document.getElementById("dinoClose");
+  var imgEl = document.getElementById("dinoImg");
+  var titleEl = document.getElementById("dinoTitle");
+  var ledeEl = document.getElementById("dinoLede");
+  var statsEl = document.getElementById("dinoStats");
+  var abilitiesEl = document.getElementById("dinoAbilities");
+
+  function openDino(key){
+    var d = DINO_DATA[key];
+    if (!d) return;
+
+    imgEl.src = d.img;
+    imgEl.alt = d.name;
+    titleEl.textContent = d.name;
+    ledeEl.textContent = d.lede;
+
+    statsEl.innerHTML = "";
+    d.stats.forEach(function(pair){
+      var box = document.createElement("div");
+      box.className = "stat-box";
+      var label = document.createElement("div");
+      label.className = "label";
+      label.textContent = pair[0];
+      var value = document.createElement("div");
+      value.className = "value";
+      value.textContent = pair[1];
+      box.appendChild(label);
+      box.appendChild(value);
+      statsEl.appendChild(box);
+    });
+
+    abilitiesEl.innerHTML = "";
+    d.abilities.forEach(function(text){
+      var li = document.createElement("li");
+      li.textContent = text;
+      abilitiesEl.appendChild(li);
+    });
+
+    overlay.classList.add("show");
+  }
+
+  function close(){ overlay.classList.remove("show"); }
+
+  document.querySelectorAll(".guide-trigger[data-dino]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      openDino(btn.getAttribute("data-dino"));
+    });
+  });
+
+  closeBtn.addEventListener("click", close);
+  overlay.addEventListener("click", function(e){
+    if (e.target === overlay) close();
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape") close();
+  });
+})();
+</script>
 
 </body>
 </html>
