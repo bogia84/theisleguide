@@ -28,10 +28,29 @@
     background: repeating-linear-gradient(-45deg, var(--amber), var(--amber) 12px, #111 12px, #111 24px);
   }
   header {
+    position: relative;
     background: #000;
     border-bottom: 3px solid var(--amber);
     padding: 40px 24px 34px;
     text-align: center;
+  }
+  .home-link {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: var(--green);
+    text-decoration: none;
+    border: 1px solid var(--panel-border);
+    padding: 6px 10px;
+    border-radius: 3px;
+    background: rgba(0,0,0,0.3);
+  }
+  .home-link:hover {
+    border-color: var(--amber);
+    color: var(--amber);
   }
   header .kicker {
     font-family: "Courier New", monospace;
@@ -152,6 +171,7 @@
 <div class="stripe"></div>
 
 <header>
+  <a class="home-link" href="../">← TRANG CHỦ</a>
   <div class="kicker">INGEN GENETIC ARCHIVES · HỒ SƠ SINH VẬT</div>
   <h1>THE ISLE: EVRIMA</h1>
   <p>Bộ hướng dẫn nhanh bằng tiếng Việt cho các loài trong The Isle: Evrima — tăng trưởng, dinh dưỡng, kỹ năng chiến đấu và chiến thuật sinh tồn.</p>

@@ -70,6 +70,25 @@
     position: relative;
     overflow: hidden;
   }
+  .home-link{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .06em;
+    color: var(--ink-dim);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .home-link:hover{
+    border-color: var(--accent);
+    color: var(--ink);
+  }
   header.placard::before{
     content:"";
     position:absolute; inset:0;
@@ -483,6 +502,7 @@
 <div class="page">
 
   <header class="placard">
+    <a class="home-link" href="../">← Home</a>
     <p class="eyebrow">Field Terminal · Camo Configuration</p>
     <h1>Skin Code Forge</h1>
     <p>Build a six-segment camo hex code — Pattern Prefix, Underbelly, Body, Flank, Markings, Male Display — and preview it on a procedural scale pattern before you commit it.</p>
