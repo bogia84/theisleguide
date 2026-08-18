@@ -521,7 +521,6 @@
           <button class="btn primary" id="copyCode">Copy Export Code</button>
           <button class="btn" id="randomize">Randomize</button>
           <button class="btn ghost" id="resetAll">Reset to 000000</button>
-          <button class="btn ghost" id="viewIn3D">Xem trên mô hình 3D →</button>
         </div>
       </div>
 
@@ -590,7 +589,6 @@
   };
 
   const PRESET_KEY = "skinForge.presets.v1";
-  const ACTIVE_SKIN_KEY = "skinForge.activeSkin.v1";
   const SEGMENT_ORDER = ["prefixTint","underbelly","body","flank","markings","maleDisplay"];
 
   const THEMES = [
@@ -1068,16 +1066,6 @@
   });
 
   window.addEventListener("resize", () => drawPreview());
-
-  // ---------- view in dino guide's 3D model ----------
-  document.getElementById("viewIn3D").addEventListener("click", () => {
-    const key = state.species.toLowerCase();
-    const segs = buildSegments();
-    const colors = {};
-    SEGMENT_ORDER.forEach((k, i) => { colors[k] = segs[i]; });
-    localStorage.setItem(ACTIVE_SKIN_KEY, JSON.stringify({ species: key, colors, savedAt: Date.now() }));
-    window.location.href = `../dino/index.html?dino=${encodeURIComponent(key)}`;
-  });
 
   // ---------- init ----------
   renderAll();
