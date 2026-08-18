@@ -3,6 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function () {
+  var p = location.pathname;
+  if (p.slice(-1) !== "/" && !/\.[a-zA-Z0-9]+$/.test(p)) {
+    location.replace(p + "/" + location.search + location.hash);
+  }
+})();
+</script>
 <title>Skin Code Forge — Camo Generator</title>
 <meta name="description" content="Build and preview a six-segment Evrima camo skin code, then copy the export string.">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
