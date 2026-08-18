@@ -577,414 +577,521 @@
 <script>
 (function(){
   var DINO_DATA = {
-    deinosuchus: {
-      name: "Deinosuchus",
-      poster: "images/carnivores/deinosuchus.jpg",
-      model: "images/models/deinosuchus.glb",
-      pdf: "Carnivores_Deinosuchus_Tieng_Viet.pdf",
-      lede: "Bạn sẽ có lý do để sợ hãi vùng nước sâu khi những kẻ săn mồi dưới nước lang thang trên các tuyến đường thủy của Isla Spiro. Hãy hết sức cẩn thận khi đến gần các vùng nước.",
+    allosaurus: {
+      name: "Allosaurus",
+      poster: "images/carnivores/allosaurus.jpg",
+      pdf: "Carnivores_Allosaurus_Tieng_Viet.pdf",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-carnivores/allosaurus",
+      lede: "Allosaurus là kẻ săn mồi nhanh nhẹn và hung hãn, dựa vào áp lực, vị trí và thời điểm hơn là sức mạnh thuần túy. Nó xuất sắc trong việc truy đuổi con mồi đến cùng, buộc đối thủ phạm sai lầm bằng cách bào mòn thể lực và phối hợp tấn công. Điều này khiến nó đặc biệt nguy hiểm khi đi theo bầy hoặc trong các cuộc đối đầu kéo dài.",
       stats: [
-        ["TRỌNG LƯỢNG TỐI ĐA", "8.000 kg"],
-        ["TỐC ĐỘ CHẠY", "18 km/h"],
-        ["LỰC CẮN", "500 N"],
-        ["GIỚI HẠN BẦY", "2"],
-        ["TT TRƯỞNG THÀNH", "6–12 giờ"],
+        ["TRỌNG LƯỢNG TỐI ĐA", "3.700 kg"],
+        ["TỐC ĐỘ CHẠY", "41.4 km/h"],
+        ["LỰC CẮN", "201 N"],
+        ["GIỚI HẠN BẦY", "3"],
+        ["TT TRƯỞNG THÀNH", "10g"],
         ["TRỨNG TỐI ĐA/Ổ", "4"]
       ],
       abilities: [
-        "Phải nặng gấp đôi mục tiêu mới có thể tóm được — ngưỡng này còn tăng thêm khi ở dưới nước.",
-        "Là loài khủng long chậm nhất trên cạn: xoay người kém và dễ chịu sát thương rơi cao hơn.",
-        "Không thể chạy nước rút trên cạn khi đang giữ con mồi.",
-        "Dưới nước: bơi tối đa 500m ở tốc độ 30 km/h trong khoảng 1 phút trước khi kiệt sức, cần 5 phút để hồi phục.",
-        "Bơi trên mặt nước: tối đa 450m ở tốc độ 27 km/h.",
-        "Tiếng gọi bạn tình không hiệu quả dưới nước — phải nổi lên mặt nước để ve vãn.",
-        "Không bị phạt vì ăn quá no và không thể lăn bùn.",
-        "Không thể dùng phím Q để phát hiện sinh vật khác dưới nước.",
-        "Được xem là loài khó chơi nhất trong game, với thời gian trưởng thành dài nhất."
+        "Giữ chuột phải: vồ mồi, nhấn Space để thả đòn — gây chảy máu và tiêu hao thể lực.",
+        "ALT + chuột trái: đòn cắn xoay hướng.",
+        "Chuột trái: cắn thường.",
+        "Giữ Chạy + chuột trái: đòn cào vuốt.",
+        "Con mồi ưa thích gồm Stegosaurus, Tenontosaurus, Lợn rừng (đạm); Diabloceratops, Triceratops, Hươu (tinh bột); Maiasaura, Dryosaurus, Dê (chất béo).",
+        "Làm tổ bằng mảnh vụn (debris), sống theo bầy tối đa 3 cá thể — săn theo nhóm phối hợp giúp dồn ép và bào mòn thể lực con mồi hiệu quả hơn."
       ]
     },
-    tyrannosaurus: {
-      name: "Tyrannosaurus Rex",
-      poster: "images/carnivores/t-rex.jpg",
-      model: "images/models/tyrannosaurus.glb",
-      pdf: "Carnivores_Tyrannosaurus_Tieng_Viet.pdf",
-      lede: "Tyrannosaurus Rex sẽ là một trong những kẻ săn mồi hàng đầu của game The Isle. Theo trang hồ sơ gốc, T-Rex vẫn đang trong quá trình hoàn thiện nên nhiều chỉ số chi tiết chưa được công bố đầy đủ.",
+    austroraptor: {
+      name: "Austroraptor",
+      poster: "images/carnivores/austroraptor.jpg",
+      pdf: "Carnivores_Austroraptor_Tieng_Viet.pdf",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-carnivores/austroraptor",
+      lede: "Austroraptor là loài raptor cỡ nhỏ chuyên đánh bắt ven biển, sử dụng chiếc mỏ dài đặc trưng để bắt cá ngay dưới mặt nước. Nó phát huy sức mạnh tối đa khi hoạt động theo bầy đông, phối hợp đòn vồ và tấn công xoay vòng để áp đảo những con mồi lớn hơn nhiều.",
       stats: [
-        ["TRỌNG LƯỢNG TỐI ĐA", "> 9.000 kg"],
-        ["TỐC ĐỘ CHẠY", "chưa công bố"],
-        ["LỰC CẮN", "chưa công bố"],
-        ["GIỚI HẠN BẦY", "2"],
-        ["TT TRƯỞNG THÀNH", "chưa công bố"],
-        ["TRỨNG TỐI ĐA/Ổ", "chưa công bố"]
-      ],
-      abilities: [
-        "Được định vị là một trong những kẻ săn mồi đỉnh cao nhất khi hoàn thiện, cùng hạng với Tyrannosaurus ngoài đời thực.",
-        "Trang hồ sơ chính thức ghi các chỉ số tốc độ, lực cắn, thời gian trưởng thành và số trứng/ổ là “tbd” (sẽ cập nhật khi có bản chính thức)."
-      ]
-    },
-    herrerasaurus: {
-      name: "Herrerasaurus",
-      poster: "images/carnivores/herrerasaurus.jpg",
-      model: "images/models/herrerasaurus.glb",
-      pdf: "Carnivores_Herrerasaurus_Tieng_Viet.pdf",
-      lede: "Một loài ăn thịt nhỏ, dễ bị tổn thương trước những khủng long lớn hơn. Con mồi ưa thích gồm Dryosaurus và Psittacosaurus — nhờ tốc độ và khả năng rình rập, nó có thể hạ gục dễ dàng các loài ăn cỏ nhỏ, dù việc ăn xác cũng tiềm ẩn rủi ro từ những kẻ săn mồi lớn hơn.",
-      stats: [
-        ["TRỌNG LƯỢNG TỐI ĐA", "175 kg"],
-        ["TỐC ĐỘ CHẠY", "45 km/h"],
-        ["LỰC CẮN", "30 N"],
+        ["TRỌNG LƯỢNG TỐI ĐA", "350 kg"],
+        ["TỐC ĐỘ CHẠY", "55.8 km/h"],
+        ["LỰC CẮN", "46 N"],
         ["GIỚI HẠN BẦY", "8"],
-        ["TT TRƯỞNG THÀNH", "≥ 1g20p"],
-        ["TRỨNG TỐI ĐA/Ổ", "6"]
-      ],
-      abilities: [
-        "Leo được hàng rào, núi và cây.",
-        "Sát thương đòn vồ (pounce) tỉ lệ theo trọng lượng mục tiêu.",
-        "Có thể lặn dưới nước kèm khả năng nhìn đêm, nín thở được khoảng 25 giây.",
-        "Túi da cổ (dewlap): kích hoạt bằng F + chuột phải, chỉ các Herrerasaurus khác nhìn thấy được — màu vàng là con đực, màu xanh lá là con cái.",
-        "Tấn công từ trên cao: giữ chuột phải rồi nhấn phím cách để bổ nhào xuống mục tiêu.",
-        "Cắn nhanh bằng ALT + chuột trái, cắn thường bằng chuột trái — gây sát thương chảy máu nặng.",
-        "Leo trèo: nhắm bằng chuột phải, nhảy bằng phím cách, giữ Shift để leo nhanh; có cơ chế bám dính tự động chống rơi khi nhắm trượt."
-      ]
-    },
-    dilophosaurus: {
-      name: "Dilophosaurus",
-      poster: "images/carnivores/dilophosaurus.jpg",
-      lede: "Nhanh nhẹn và nhỏ con, Dilophosaurus là thợ săn về đêm sở hữu khả năng nhìn đêm tốt nhất và gây sát thương chảy máu mạnh nhất. Nó nhắm vào các loài ăn cỏ nhỏ và AI như Orodromeus, Psittacosaurus, có thể đối đầu các loài ăn thịt nhỏ như Utahraptor nhưng dễ bị đe dọa bởi những kẻ săn mồi lớn hơn.",
-      stats: [
-        ["TRỌNG LƯỢNG TỐI ĐA", "700 kg"],
-        ["TỐC ĐỘ CHẠY", "47.5 km/h"],
-        ["LỰC CẮN", "75 N"],
-        ["GIỚI HẠN BẦY", "4"],
-        ["TT TRƯỞNG THÀNH", "≥ 1g45p"],
-        ["TRỨNG TỐI ĐA/Ổ", "6"]
-      ],
-      abilities: [
-        "Tốc độ đi, xoay người và chạy đều tốt, cùng lượng thể lực dồi dào.",
-        "Đòn tấn công cơ bản (chuột trái) cực nhanh; bản sao ảo (clone) hồi chiêu khoảng 10 giây.",
-        "Dễ bị tổn thương bởi sát thương chảy máu.",
-        "Chuột phải: triệu hồi bản sao khi mục tiêu đã trúng độc hoàn toàn (dấu hiệu màu tím).",
-        "ALT + chuột trái: cắn nhanh kèm xoay người gấp.",
-        "Mục tiêu trúng độc bị thu hẹp tầm nhìn, ảo giác, và bị các bản sao ảo của Dilophosaurus tấn công — bản sao biến mất khi bị đánh trúng hoặc sau khi tấn công mục tiêu. Tấn công vào đầu tích lũy ảo giác hiệu quả nhất."
-      ]
-    },
-    ceratosaurus: {
-      name: "Ceratosaurus",
-      poster: "images/carnivores/ceratosaurus.jpg",
-      lede: "Một loài ăn thịt mạnh mẽ, dễ nhận biết nhờ cặp sừng mũi đặc trưng và hệ tiêu hóa cực kỳ bền bỉ.",
-      stats: [
-        ["TRỌNG LƯỢNG TỐI ĐA", "1.300 kg"],
-        ["TỐC ĐỘ CHẠY", "40.2 km/h"],
-        ["LỰC CẮN", "150 N"],
-        ["GIỚI HẠN BẦY", "4"],
-        ["TT TRƯỞNG THÀNH", "≥ 2g05p"],
+        ["TT TRƯỞNG THÀNH", "35g33p"],
         ["TRỨNG TỐI ĐA/Ổ", "4"]
       ],
       abilities: [
-        "Không thể nhảy.",
-        "Hiển thị vi khuẩn khi ăn; giảm sát thương nhận vào trong lúc đang ăn.",
-        "Nôn mửa giúp đẩy nhanh quá trình phân hủy xác trong bán kính 15m, nhanh gấp 5 lần bình thường.",
-        "Có thể gây nôn cho khủng long khác thông qua vết cắn (bile).",
-        "Miễn nhiễm với hiệu ứng vi khuẩn; có phạm vi đánh hơi xa nhất trong tất cả các loài, càng nhạy hơn khi phát hiện thịt thối. Có thể ngửi thấy mùi nôn mửa nhưng bản thân không thể tự nôn.",
-        "Chuột phải (cắn tích lực): trúng đầu khi tích đủ lực gây 517.5 sát thương.",
-        "ALT + chuột trái (cắn xoay 360°): 150 sát thương cơ bản / 300 khi trúng đầu.",
-        "Chuột trái (cắn thường): 150 sát thương cơ bản / 225 khi trúng đầu.",
-        "Buff cơ thể: tự động giảm sát thương (0%, 25% hoặc 50%) khi ở trong bán kính 30m quanh xác nặng từ 130kg trở lên."
-      ]
-    },
-    troodon: {
-      name: "Troodon",
-      poster: "images/carnivores/troodon.jpg",
-      lede: "Sinh vật nhanh nhẹn này không quá nguy hiểm khi đi một mình, nhưng vết cắn có độc của nó có thể gây rắc rối lớn cho nhiều loài nếu hành động theo nhóm phối hợp. Nó có thể bắt chước một số âm thanh, vì vậy hãy luôn cẩn trọng.",
-      stats: [
-        ["TRỌNG LƯỢNG TỐI ĐA", "45 kg"],
-        ["TỐC ĐỘ CHẠY", "28.5 km/h"],
-        ["LỰC CẮN", "15 N"],
-        ["GIỚI HẠN BẦY", "10"],
-        ["TT TRƯỞNG THÀNH", "≥ 1g10p"],
-        ["TRỨNG TỐI ĐA/Ổ", "5"]
-      ],
-      abilities: [
-        "Nhảy tốn khoảng 5% thể lực.",
-        "Có lượng HP cao hơn mức cân nặng gợi ý.",
-        "Vồ mồi (pounce): giữ chuột phải để bám vào mục tiêu; có thể nhảy lên bất kỳ phía nào của khủng long, kể cả từ phía sau.",
-        "Hệ thống độc 3 cấp: cần 3 lần vồ cắn phối hợp để đạt trạng thái “Nhiễm độc hoàn toàn”; mục tiêu trúng độc phát sáng xanh dương/xanh lá; ở cấp 3, mục tiêu dễ chịu sát thương hơn.",
-        "Chuột trái: cắn thường. ALT + chuột trái: cắn xoay hướng kèm bước nhảy lao tới."
-      ]
-    },
-    omniraptor: {
-      name: "Omniraptor",
-      poster: "images/carnivores/omniraptor.jpg",
-      lede: "Thợ săn theo bầy được ví như “khẩu pháo thủy tinh” với sự tinh ranh và hung hãn, có khả năng đổi hướng nhanh ở tốc độ cao. Bán kính xoay người nhỏ hơn so với các đối thủ như Carnotaurus.",
-      stats: [
-        ["TRỌNG LƯỢNG TỐI ĐA", "450 kg"],
-        ["TỐC ĐỘ CHẠY", "46.8 km/h"],
-        ["LỰC CẮN", "65 N"],
-        ["GIỚI HẠN BẦY", "8"],
-        ["TT TRƯỞNG THÀNH", "1g43p–2g24p"],
-        ["TRỨNG TỐI ĐA/Ổ", "4"]
-      ],
-      abilities: [
-        "Vồ mục tiêu lớn hơn: gây chảy máu và sát thương. Vồ mục tiêu nhỏ hơn: ghim chặt xuống đất.",
-        "Không thể vồ mục tiêu đang thực hiện đòn nhảy tấn công; vồ tốn nhiều thể lực; có thể bị hất văng nếu mục tiêu chạy ngang qua vật cản.",
-        "Hiệu quả nhất khi săn theo nhóm phối hợp; có thể vồ từ bất kỳ hướng nào, kể cả từ phía sau.",
-        "Nhảy rất cao để thoát khỏi những khủng long lớn hơn.",
-        "Điểm mạnh: rất nhanh, linh hoạt, nhảy xa, đòn vồ mạnh, đáng gờm khi theo bầy, dự trữ thể lực dồi dào.",
-        "Điểm yếu: thường lép vế khi đấu 1-chọi-1 với khủng long cùng cỡ khác.",
-        "Chiến thuật sinh tồn: gia nhập bầy ngay từ khi còn nhỏ, quản lý thể lực cẩn thận, tránh chạy nước rút khi không cần thiết, phối hợp đòn vồ và tận dụng sát thương chảy máu thay vì cố kết liễu mục tiêu trực diện."
-      ]
-    },
-    pteranodon: {
-      name: "Pteranodon",
-      poster: "images/carnivores/pteranodon.jpeg",
-      lede: "Bay lượn trên bầu trời như một trong những sinh vật lộng lẫy nhất trên đảo. Pteranodon có thân hình mong manh, bất lợi khi giao chiến, nhưng bù lại bằng khả năng bay để né tránh. Chế độ ăn chủ yếu là cá và xác thối.",
-      stats: [
-        ["TRỌNG LƯỢNG TỐI ĐA", "45 kg"],
-        ["TỐC ĐỘ CHẠY", "28.5 km/h"],
-        ["LỰC CẮN", "20 N"],
-        ["GIỚI HẠN BẦY", "6"],
-        ["TT TRƯỞNG THÀNH", "≥ 1g25p"],
-        ["TRỨNG TỐI ĐA/Ổ", "4"]
-      ],
-      abilities: [
-        "Có thể hồi thể lực khi đang bám (latch), miễn là thanh thể lực còn ít nhất 20%.",
-        "Có thể bay được với mọi loại gãy xương, ngoại trừ gãy chân.",
-        "Không thể mang hoặc thả khủng long khác, nhưng có thể tha cua, ếch, thỏ và gà khi đã trưởng thành.",
-        "Hành vi xin ăn (begging) kết thúc ở mức 18% thể lực đối với con non; con non cũng không thể bắt cá theo đàn.",
-        "Xác và nội tạng của Pteranodon không rơi ra khi bị lắc hoặc bị tấn công.",
-        "Vẫn có thể tiếp tục bay ngay cả khi bị Troodon vồ trúng."
+        "Chuột trái: đòn cắn cơ bản.",
+        "ALT + chuột trái: đòn cắn xoay hướng.",
+        "Space: nhảy — có thể tấn công ngay cả khi đang trên không.",
+        "Chuột phải: vồ và ghim mục tiêu, tương tự Omniraptor.",
+        "Phím G: câu cá bằng mỏ (spearfishing).",
+        "Con mồi ưa thích gồm Ếch bò, Gà, Thỏ, Deinosuchus, Hypsilophodon (đạm); Cua, Cá theo đàn, Trai (tinh bột); Beipiaosaurus, Cá tinh hoa, Psittacosaurus, Rùa biển (chất béo).",
+        "Làm tổ bằng mảnh vụn (debris), sống theo bầy đông tới 8 cá thể — một trong những giới hạn bầy lớn nhất ở nhóm ăn thịt."
       ]
     },
     carnotaurus: {
       name: "Carnotaurus",
       poster: "images/carnivores/carnotaurus.jpeg",
-      lede: "Rình rập trên các đồng bằng như cơn ác mộng tuyệt đối của mọi sinh vật nhỏ khi cái hàm khát máu này lao vun vút khắp hòn đảo. Dù thiếu sự linh hoạt của Utahraptor nhanh nhẹn, tốc độ kinh hoàng và khả năng húc ngã đối thủ bù đắp dư thừa cho điều đó. Hãy nhớ nhìn trái phải trước khi băng qua đường!",
+      pdf: "Carnivores_Carnotaurus_Tieng_Viet.pdf",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-carnivores/carnotaurus",
+      lede: "Carnotaurus là kẻ săn mồi cỡ trung chuyên về tốc độ và những cú bứt phá mạnh mẽ. Đôi chân dài cho phép nó vượt mặt hầu hết các loài ăn thịt cùng kích cỡ, và cú húc của nó đủ sức hất ngã con mồi. Bù lại, khả năng hồi thể lực khi đang di chuyển khá hạn chế và nó xoay trở kém trong không gian chật hẹp, nên phát huy sức mạnh tốt nhất ở địa hình trống trải hơn là trong rừng rậm.",
       stats: [
-        ["TRỌNG LƯỢNG TỐI ĐA", "1.300 kg"],
-        ["TỐC ĐỘ CHẠY", "49.5–55.5 km/h"],
-        ["LỰC CẮN", "150 N"],
+        ["TRỌNG LƯỢNG TỐI ĐA", "1.800 kg"],
+        ["TỐC ĐỘ CHẠY", "55.6 km/h"],
+        ["LỰC CẮN", "172.5 N"],
         ["GIỚI HẠN BẦY", "3"],
-        ["TT TRƯỞNG THÀNH", "2g50p–5g40p"],
+        ["TT TRƯỞNG THÀNH", "7g40p"],
         ["TRỨNG TỐI ĐA/Ổ", "3"]
       ],
       abilities: [
-        "Là loài ăn thịt nhanh nhất trong game khi chạy nước rút.",
-        "Đòn húc (ramming) có thời gian hồi chiêu trước khi dùng lại được.",
-        "Xoay người chậm khi đang chạy.",
-        "Không nên một mình đối đầu với 3 Omniraptor trở lên."
+        "Chuột trái: đòn cắn thường.",
+        "ALT + chuột trái: đòn cắn nhanh hơn, cúi thấp sát đất; tốn thể lực.",
+        "Chuột phải: húc (charge) — nhấn nhẹ trong lúc chạy để bắt đầu tích lực húc.",
+        "Con mồi ưa thích gồm Pachycephalosaurus, Tenontosaurus, Herrerasaurus, Lợn rừng (đạm); Omniraptor, Diabloceratops, Troodon, Hươu (tinh bột); Dryosaurus, Gallimimus, Dilophosaurus (chất béo).",
+        "Làm tổ bằng mảnh vụn (debris), sống theo bầy tối đa 3 cá thể, mỗi ổ tối đa 3 trứng.",
+        "Đôi chân dài giúp nó vượt tốc hầu hết các loài ăn thịt cùng cỡ, nhưng hồi thể lực kém khi đang di chuyển và xoay người kém linh hoạt trong không gian hẹp."
       ]
     },
-    triceratops: {
-      name: "Triceratops",
-      model: "images/models/triceratops.glb",
-      pdf: "Herbivores_Triceratops_Tieng_Viet.pdf",
-      lede: "Triceratops là một trong những loài ăn cỏ hạng nặng nhất trò chơi. Theo trang hồ sơ chính thức, thông tin chi tiết về loài này vẫn còn hạn chế và sẽ được cập nhật khi có bản chính thức.",
+    ceratosaurus: {
+      name: "Ceratosaurus",
+      poster: "images/carnivores/ceratosaurus.jpg",
+      pdf: "Carnivores_Ceratosaurus_Tieng_Viet.pdf",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-carnivores/ceratosaurus",
+      lede: "Ceratosaurus là loài ăn thịt đa năng với chế độ ăn rộng, có thể xử lý cả con mồi tươi lẫn xác thối đã phân hủy. Thể trạng bền bỉ giúp nó chống chịu tốt trước những điều kiện mà các loài săn mồi khác phải chật vật, mang lại lợi thế cả khi săn mồi lẫn khi ăn xác.",
       stats: [
-        ["TRỌNG LƯỢNG TỐI ĐA", "9.500 kg"],
-        ["TỐC ĐỘ CHẠY", "24,6 km/h"],
-        ["LỰC CẮN", "600 N"],
-        ["GIỚI HẠN BẦY", "2"],
-        ["TT TRƯỞNG THÀNH", "chưa công bố"],
-        ["TRỨNG TỐI ĐA/Ổ", "chưa công bố"]
+        ["TRỌNG LƯỢNG TỐI ĐA", "1.950 kg"],
+        ["TỐC ĐỘ CHẠY", "40.3 km/h"],
+        ["LỰC CẮN", "172.5 N"],
+        ["GIỚI HẠN BẦY", "5"],
+        ["TT TRƯỞNG THÀNH", "6g"],
+        ["TRỨNG TỐI ĐA/Ổ", "3"]
       ],
       abilities: [
-        "Trang hồ sơ chính thức hiện chưa công bố các kỹ năng chiến đấu chi tiết — sẽ cập nhật khi có bản chính thức.",
-        "Là một trong những loài ăn cỏ nặng cân nhất, phù hợp với vai trò phòng thủ hạng nặng nhờ trọng lượng và lực cắn vượt trội."
+        "Chuột trái: cắn thường (150 sát thương / 225 khi trúng đầu).",
+        "Giữ chuột phải: cắn tích lực (237–517.5 sát thương, sát thương đầu tăng theo lực tích).",
+        "ALT + chuột trái: cắn xoay 360° (150 sát thương cơ bản / 300 khi trúng đầu).",
+        "Nhấp chuột phải 3 lần liên tiếp lên xác: gây nôn mửa.",
+        "Con mồi ưa thích gồm Tenontosaurus, Pachycephalosaurus, Ceratosaurus (đạm); Carnotaurus, Deinosuchus, Omniraptor, Diabloceratops, Hươu (tinh bột); Dilophosaurus, Stegosaurus, Beipiaosaurus, Dê (chất béo).",
+        "Làm tổ bằng mảnh vụn qua 2 giai đoạn xây dựng, sống theo bầy tối đa 5 cá thể, mỗi ổ tối đa 3 trứng."
+      ]
+    },
+    deinosuchus: {
+      name: "Deinosuchus",
+      poster: "images/carnivores/deinosuchus.jpg",
+      pdf: "Carnivores_Deinosuchus_Tieng_Viet.pdf",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-carnivores/deinosuchus",
+      lede: "Deinosuchus là loài cá sấu khổng lồ chuyên phục kích và vật lộn với con mồi. Trên cạn nó di chuyển chậm chạp, nhưng dưới nước nó lại cực kỳ nguy hiểm, có thể lao tới ngoạm và ghì chặt những mục tiêu vừa đủ nhỏ so với mình. Hãy hết sức cẩn trọng khi đến gần các vùng nước sâu của Isla Spiro.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "13.500 kg"],
+        ["TỐC ĐỘ CHẠY", "21.4 km/h"],
+        ["LỰC CẮN", "575 N"],
+        ["GIỚI HẠN BẦY", "2"],
+        ["TT TRƯỞNG THÀNH", "23g3p"],
+        ["TRỨNG TỐI ĐA/Ổ", "5"]
+      ],
+      abilities: [
+        "Chuột trái: cắn thường.",
+        "Chuột phải: lao vọt lên từ dưới nước để đớp mồi — giữ chuột phải để duy trì cú ngoạm sau khi bám được mục tiêu.",
+        "ALT + chuột trái: cắn xoay 360° theo hướng nhìn.",
+        "Là loài khủng long chậm nhất trên cạn nhưng cực kỳ hiệu quả khi phục kích dưới nước, có thể bám và giữ chặt những mục tiêu vừa đủ nhỏ.",
+        "Con mồi ưa thích gồm Tenontosaurus, Pachycephalosaurus, Ceratosaurus (đạm); Carnotaurus, Omniraptor, Diabloceratops, Deinosuchus, Troodon, Ếch bò (tinh bột); Cá tinh hoa, Gallimimus, Stegosaurus, Beipiaosaurus, Maiasaura, Rùa biển (chất béo).",
+        "Làm tổ bằng mảnh vụn (debris), sống theo bầy tối đa 2 cá thể, mỗi ổ tối đa 5 trứng — nhiều nhất trong số các loài ăn thịt."
+      ]
+    },
+    dilophosaurus: {
+      name: "Dilophosaurus",
+      poster: "images/carnivores/dilophosaurus.jpg",
+      pdf: "Carnivores_Dilophosaurus_Tieng_Viet.pdf",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-carnivores/dilophosaurus",
+      lede: "Nhỏ con và nhanh nhẹn, Dilophosaurus bù đắp cho sự thiếu vắng sức mạnh cơ bắp bằng lối đánh nhanh rồi rút — và thứ vũ khí đáng sợ nhất của nó chính là nọc độc gây ảo giác. Nó không đủ sức đấu tay đôi với những kẻ săn mồi lớn, nhưng từng đợt tấn công chớp nhoáng sẽ dần bào mòn con mồi cho đến khi gục ngã.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "977 kg"],
+        ["TỐC ĐỘ CHẠY", "52.3 km/h"],
+        ["LỰC CẮN", "97.75 N"],
+        ["GIỚI HẠN BẦY", "4"],
+        ["TT TRƯỞNG THÀNH", "6g"],
+        ["TRỨNG TỐI ĐA/Ổ", "6"]
+      ],
+      abilities: [
+        "Chuột trái: đòn cắn thường. ALT + chuột trái: cắn nhanh hơn kèm xoay người gấp.",
+        "Chuột phải: triệu hồi bản sao ảo tấn công mục tiêu khi đã trúng độc hoàn toàn (dấu hiệu chuyển màu tím).",
+        "Nọc độc gây ảo giác, thu hẹp tầm nhìn con mồi và khiến các bản sao ảo hiện ra tấn công mục tiêu; bản sao hồi chiêu khoảng 10 giây.",
+        "Con mồi ưa thích gồm Boar, Tenontosaurus, Herrerasaurus và Ceratosaurus (nhóm đạm chính), bên cạnh nhiều loài ăn cỏ nhỏ khác.",
+        "Sống theo bầy tối đa 4 cá thể, làm tổ kiểu ụ đất (mound) với tối đa 6 trứng mỗi ổ."
+      ]
+    },
+    herrerasaurus: {
+      name: "Herrerasaurus",
+      poster: "images/carnivores/herrerasaurus.jpg",
+      pdf: "Carnivores_Herrerasaurus_Tieng_Viet.pdf",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-carnivores/herrerasaurus",
+      lede: "Herrerasaurus là kẻ săn mồi cơ hội, sẵn sàng vừa săn vừa ăn xác tùy hoàn cảnh. Thân hình nhanh nhẹn cùng hàm răng và móng vuốt sắc bén giúp nó gây sát thương đều đặn, dù khá mong manh so với những loài ăn thịt to lớn hơn. Bù lại, tốc độ và sức bền dồi dào cho phép nó quấy rối con mồi rồi kịp rút lên cây trú ẩn trước khi bị trả đũa.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "225 kg"],
+        ["TỐC ĐỘ CHẠY", "46.8 km/h"],
+        ["LỰC CẮN", "34.5 N"],
+        ["GIỚI HẠN BẦY", "10"],
+        ["TT TRƯỞNG THÀNH", "5g25p"],
+        ["TRỨNG TỐI ĐA/Ổ", "6"]
+      ],
+      abilities: [
+        "Chuột trái: cắn thường. ALT + chuột trái: cắn nhanh hơn kèm xoay người gấp.",
+        "Chuột phải (bổ nhào - Drop Attack): giữ chuột phải để ngắm vào mục tiêu, khi sẵn sàng nhấn phím cách để lao tới hoặc nhảy xuống từ trên cây.",
+        "Có thể leo trèo: giữ chuột phải để ngắm rồi dùng phím cách để nhảy bám lên cây hoặc vách đá.",
+        "Con mồi ưa thích gồm Crab, Schooling Fish, Tenontosaurus, Pachycephalosaurus và Boar (nhóm đạm chính).",
+        "Sống theo bầy tối đa 10 cá thể, làm tổ kiểu đống mảnh vụn (debris) với tối đa 6 trứng mỗi ổ.",
+        "Thân hình mảnh khảnh so với nhiều loài săn mồi khác, nhưng bù lại bằng tốc độ và độ bền bỉ để quấy nhiễu con mồi rồi rút lui kịp thời."
+      ]
+    },
+    omniraptor: {
+      name: "Omniraptor",
+      poster: "images/carnivores/omniraptor.jpg",
+      pdf: "Carnivores_Omniraptor_Tieng_Viet.pdf",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-carnivores/omniraptor",
+      lede: "Omniraptor là thợ săn nhỏ con nhưng cực kỳ thích nghi, có thể tự săn một mình hoặc phối hợp theo bầy tùy tình huống. Tốc độ và khả năng đổi hướng linh hoạt là thứ vũ khí lợi hại nhất của nó, biến nó thành mối đe dọa khó lường trên khắp hòn đảo.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "660 kg"],
+        ["TỐC ĐỘ CHẠY", "52.3 km/h"],
+        ["LỰC CẮN", "75.75 N"],
+        ["GIỚI HẠN BẦY", "8"],
+        ["TT TRƯỞNG THÀNH", "5g55p"],
+        ["TRỨNG TỐI ĐA/Ổ", "6"]
+      ],
+      abilities: [
+        "Chuột phải: đòn vồ (pounce) bám chặt lên mục tiêu — trong lúc bám, giữ chuột trái để gây sát thương thuần hoặc giữ chuột phải để gây chảy máu thuần.",
+        "Chuột trái: cắn thường. ALT + chuột trái: cắn xoay 360° theo hướng camera.",
+        "Nhảy + nhìn lên + chuột trái: cắn khi nhảy. Nhảy + nhìn xuống + chuột trái: đá khi nhảy.",
+        "Con mồi ưa thích gồm Boar, Herrerasaurus, Pachycephalosaurus và Ceratosaurus (nhóm đạm chính).",
+        "Sống theo bầy tối đa 8 cá thể, làm tổ kiểu ụ đất (mound) với tối đa 6 trứng mỗi ổ.",
+        "Nhỏ con nhưng cực kỳ linh hoạt, có thể săn đơn độc hoặc phối hợp theo bầy nhờ tốc độ và khả năng đổi hướng vượt trội."
+      ]
+    },
+    pteranodon: {
+      name: "Pteranodon",
+      poster: "images/carnivores/pteranodon.jpeg",
+      pdf: "Carnivores_Pteranodon_Tieng_Viet.pdf",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-carnivores/pteranodon",
+      lede: "Pteranodon là loài dực long cỡ lớn thống trị bầu trời, chủ yếu săn cá và các loài nhỏ trên cạn. Khả năng lượn xa mang lại độ cơ động không đối thủ nào sánh kịp, nhưng để sinh tồn nó luôn cần vùng nước mở và điểm cất cánh an toàn. Trên mặt đất nó cực kỳ yếu ớt, song một khi đã cất cánh thì tốc độ và sự nhanh nhẹn giúp nó thoát hiểm dễ dàng.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "120 kg"],
+        ["TỐC ĐỘ CHẠY", "39.4 km/h"],
+        ["LỰC CẮN", "23 N"],
+        ["GIỚI HẠN BẦY", "6"],
+        ["TT TRƯỞNG THÀNH", "4g30p"],
+        ["TRỨNG TỐI ĐA/Ổ", "4"]
+      ],
+      abilities: [
+        "Chuột trái: đòn cắn chúc xuống.",
+        "Giữ Z + chuột phải: bám (latch) vào cây hoặc vách đá.",
+        "Nhấn phím cách 3 lần liên tiếp để cất cánh bay lên bầu trời.",
+        "Chuột phải khi bay thấp trên mặt nước: rê đầu xuống nước để bắt cá (skimming).",
+        "ALT + chuột trái (chỉ dùng trên mặt đất): đòn cắn mạnh hơn nhưng tốn thể lực.",
+        "Giữ phím cách rồi nhấn Ctrl hai lần: lăn vòng (barrel roll) để né đòn.",
+        "Con mồi ưa thích chủ yếu là cá và các loài nhỏ như Schooling Fish, Crabs, Chicken, Hypsilophodon.",
+        "Sống theo bầy tối đa 6 cá thể, làm tổ kiểu đống mảnh vụn (debris) với tối đa 4 trứng mỗi ổ."
+      ]
+    },
+    troodon: {
+      name: "Troodon",
+      poster: "images/carnivores/troodon.jpg",
+      pdf: "Carnivores_Troodon_Tieng_Viet.pdf",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-carnivores/troodon",
+      lede: "Troodon là thợ săn về đêm, dùng nọc độc để làm suy yếu và gây rối loạn con mồi thay vì đối đầu trực diện. Nó ưa lối đánh du kích: cắn một nhát gây hiệu ứng bất lợi rồi rút lui ngay lập tức, để vết thương và nọc độc từ từ bào mòn đối thủ. Đừng đánh giá thấp một bầy Troodon phối hợp tốt — theo thời gian, chúng có thể quật ngã cả những con mồi to lớn hơn nhiều.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "79.8 kg"],
+        ["TỐC ĐỘ CHẠY", "52.2 km/h"],
+        ["LỰC CẮN", "17.25 N"],
+        ["GIỚI HẠN BẦY", "10"],
+        ["TT TRƯỞNG THÀNH", "3g10p"],
+        ["TRỨNG TỐI ĐA/Ổ", "5"]
+      ],
+      abilities: [
+        "Chuột phải: đòn vồ nhảy có độc, tấn công 360° quanh mục tiêu, tốn thể lực.",
+        "Nọc độc tích lũy qua 3 cấp mỗi lần vồ trúng; mục tiêu trúng độc hoàn toàn sẽ chịu sát thương tăng thêm.",
+        "Chuột trái: cắn thường. ALT + chuột trái: cắn xoay 360° kèm bước lao/nhảy tới trước.",
+        "Nhảy hoặc vồ tốn khoảng 5% thể lực; khi đang bám (latch) tiêu hao khoảng 2% thể lực mỗi 1,2 giây.",
+        "Là loài săn đêm, không thiên về đối đầu trực diện mà dùng chiến thuật đánh nhanh rút gọn để làm suy yếu con mồi trước khi rút lui.",
+        "Con mồi ưa thích gồm Boar, Pachycephalosaurus, Tenontosaurus và Herrerasaurus (nhóm đạm chính).",
+        "Sống theo bầy tối đa 10 cá thể, làm tổ kiểu ụ đất (mound) với tối đa 5 trứng mỗi ổ."
+      ]
+    },
+    tyrannosaurus: {
+      name: "Tyrannosaurus Rex",
+      poster: "images/carnivores/t-rex.jpg",
+      pdf: "Carnivores_Tyrannosaurus_Tieng_Viet.pdf",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-carnivores/tyrannosaurus",
+      lede: "Tyrannosaurus Rex là một trong những kẻ săn mồi đỉnh cao lớn nhất trên đảo, được xây dựng quanh sức mạnh áp đảo và khả năng thống trị gần như tuyệt đối trước hầu hết các loài khác. Cú cắn của nó đủ sức nghiền nát xương của bất kỳ con mồi nào chậm chân hơn.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "12.300 kg"],
+        ["TỐC ĐỘ CHẠY", "35 km/h"],
+        ["LỰC CẮN", "770 N"],
+        ["GIỚI HẠN BẦY", "2"],
+        ["TT TRƯỞNG THÀNH", "35g33p"],
+        ["TRỨNG TỐI ĐA/Ổ", "5"]
+      ],
+      abilities: [
+        "Chuột trái: đòn cắn cơ bản — mọi đòn cắn đều có thể gây gãy xương cho mục tiêu.",
+        "ALT + chuột trái: cắn theo hướng, tốn khoảng 2% thể lực.",
+        "Chuột phải: húc mõm (muzzle swing), có thể hạ gục mục tiêu nhẹ cân hơn; giữ chuột phải để tung cú húc mạnh hơn.",
+        "Giữ rồi thả chuột trái: đòn \"Crush\" — cú lao mạnh có thể ghim và kết liễu mục tiêu nhẹ hơn phân nửa trọng lượng bản thân, kết hợp chuột phải để ném mục tiêu đi.",
+        "Phím cách (từ giai đoạn Sub Adult trở lên): kỹ năng Phục kích — tăng tốc độ chạy nước rút trong 15 giây, hồi chiêu 1 phút.",
+        "Tự động vào chế độ giao đấu khi đối đầu T-Rex hoặc Triceratops khác: né sang bên bằng phím cách, giữ chuột trái để gây choáng.",
+        "Con mồi ưa thích (nhóm protein) gồm Stegosaurus, Tenontosaurus, Pachycephalosaurus, heo rừng và cua; ngoài ra còn săn Diabloceratops, Triceratops, Hypsilophodon, hươu, gà, thỏ (nhóm carb) cùng Maiasaura, Gallimimus, Dryosaurus, Beipiaosaurus, dê, Psittacosaurus và rùa biển (nhóm lipid).",
+        "Làm tổ bằng mảnh vụn (debris); giới hạn bầy 2 cá thể, tối đa 5 trứng mỗi ổ."
       ]
     },
     diabloceratops: {
       name: "Diabloceratops",
-      model: "images/models/diabloceratops.glb",
+      poster: "images/herbivores/diabloceratops.jpg",
       pdf: "Herbivores_Diabloceratops_Tieng_Viet.pdf",
-      lede: "Diabloceratops luôn sẵn sàng chiến đấu. Là loài ăn cỏ hung hăng, chúng đuổi theo mục tiêu và dùng cặp sừng loại bỏ mối đe doạ bằng những cú xoay hướng cực nhanh — đừng nghĩ có thể dễ dàng đối đầu với chúng.",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-herbivores/diabloceratops",
+      lede: "Diabloceratops là loài ceratopsian thân hình chắc nịch, xoay người cực nhanh và ưa dùng cặp sừng để giải quyết mọi mối đe doạ ở cự ly gần. Khi hoạt động theo đàn, chúng tận dụng tốt sự gắn kết nhóm để xua đuổi những kẻ săn mồi — đừng nghĩ có thể dễ dàng đối đầu với chúng.",
       stats: [
-        ["TRỌNG LƯỢNG TỐI ĐA", "3.000 kg"],
-        ["TỐC ĐỘ CHẠY", "36 km/h"],
-        ["LỰC CẮN", "275 N"],
+        ["TRỌNG LƯỢNG TỐI ĐA", "3.900 kg"],
+        ["TỐC ĐỘ CHẠY", "37,8 km/h"],
+        ["LỰC CẮN", "316,3 N"],
         ["GIỚI HẠN BẦY", "6"],
-        ["TT TRƯỞNG THÀNH", "3g30p trở lên"],
+        ["TT TRƯỞNG THÀNH", "7g45p"],
         ["TRỨNG TỐI ĐA/Ổ", "6"]
       ],
       abilities: [
         "Húc đầu cơ bản (chuột trái), có thể kết hợp với chạy để tạo cú đẩy/xung phong mạnh hơn.",
-        "Húc đầu khi đang chạy có thể gây choáng/hạ gục, hiệu quả phụ thuộc vào cân nặng mục tiêu.",
-        "Húc chúc đầu khi nhìn xuống thấp, hoặc vào tư thế phòng thủ (giữ chuột phải) để giảm sát thương lên đầu.",
-        "Xoay người nhanh khi chạy nhờ lướt ngang bằng phím A/D; có chế độ tiết kiệm thể lực khi giữ Ctrl.",
-        "Đòn vào đầu nhận sát thương giảm; mỗi điểm tấn công cần khoảng 30 giây để hồi, hết điểm sẽ tiêu hao thể lực.",
+        "Húc đầu khi đang chạy có thể gây đẩy lùi, hạ gục hoặc choáng, hiệu quả phụ thuộc vào cân nặng mục tiêu.",
+        "Giữ chuột phải để vào tư thế phòng thủ/lướt ngang, giúp giảm sát thương lên đầu.",
+        "Nếu hai sừng bị mắc vào nhau khi húc, giữ phím Space cùng phím di chuyển để gỡ ra.",
         "Trong các trận húc sừng, cá thể lớn hơn có lợi thế rõ rệt so với cá thể nhỏ hơn.",
-        "Nếu hai sừng bị mắc vào nhau, giữ phím Space cùng phím di chuyển để gỡ ra."
-      ]
-    },
-    maiasaura: {
-      name: "Maiasaura",
-      model: "images/models/maiasaura.glb",
-      pdf: "Herbivores_Maiasaura_Tieng_Viet.pdf",
-      lede: "Maiasaura là loài ăn cỏ lớn thứ hai trong game, có thể chuyển đổi linh hoạt giữa di chuyển bốn chân và hai chân. Dù khá nhanh so với kích thước, chúng xoay trở rất chậm và có nhiều lựa chọn tấn công/phòng thủ khác nhau — một loài khó chơi, không khuyến khích cho người mới.",
-      stats: [
-        ["TRỌNG LƯỢNG TỐI ĐA", "3.700 kg"],
-        ["TỐC ĐỘ CHẠY", "46,9 km/h"],
-        ["LỰC CẮN", "40 N"],
-        ["GIỚI HẠN BẦY", "9"],
-        ["TT TRƯỞNG THÀNH", "2g30p–5g"],
-        ["TRỨNG TỐI ĐA/Ổ", "6"]
-      ],
-      abilities: [
-        "Xoay người chậm trừ khi đang chạy nước rút — lúc đó các cú xoay sẽ nhanh hơn.",
-        "Chuyển đổi giữa dáng đứng hai chân và bốn chân bằng Ctrl hoặc Space.",
-        "Ở tư thế hai chân: đòn cào 360° phía trước khi đứng/đi bộ, đòn chém liên hoàn phía trước khi chạy; chuột phải để đẩy hoặc húc/đẩy ngang khi chạy.",
-        "Ở tư thế bốn chân: đòn chuột trái đổi hướng theo camera (tấn công phía trước, đá hậu, tấn công chéo sau, đá ngang); chuột phải để húc đầu hoặc cắn."
-      ]
-    },
-    pachycephalosaurus: {
-      name: "Pachycephalosaurus",
-      model: "images/models/pachycephalosaurus.glb",
-      pdf: "Herbivores_Pachycephalosaurus_Tieng_Viet.pdf",
-      lede: "Pachycephalosaurus là loài ăn cỏ đầu cứng, dễ nhận ra nhờ hộp sọ hình vòm — thứ vũ khí có thể gây chấn thương nghiêm trọng cho đối thủ. Ương bướng và nguy hiểm, tốt nhất nên tránh đối đầu trực diện với chúng.",
-      stats: [
-        ["TRỌNG LƯỢNG TỐI ĐA", "500 kg"],
-        ["TỐC ĐỘ CHẠY", "41,8 km/h"],
-        ["LỰC CẮN", "20 N"],
-        ["GIỚI HẠN BẦY", "8"],
-        ["TT TRƯỞNG THÀNH", "1g35p–3g10p"],
-        ["TRỨNG TỐI ĐA/Ổ", "6"]
-      ],
-      abilities: [
-        "Húc đầu (chuột phải): lao về phía trước và đập đầu vòm vào đối thủ, thường gây gãy xương.",
-        "Vung đầu (Alt + chuột trái): quật đầu sang bên để hạ gục đối thủ.",
-        "Cắn (chuột trái): đòn tấn công cơ bản.",
-        "Bơi kém, dễ chịu sát thương khi rơi từ trên cao.",
-        "Gây gãy xương thay vì chảy máu; húc đầu gần như vô hiệu với mục tiêu nặng hơn 3 tấn (đòn cắn vẫn có tác dụng).",
-        "Đầu nhận ít sát thương hơn, tiêu hao ít thể lực cho các đòn đặc biệt, và có cú nhảy khá cao."
+        "Thức ăn ưa thích (nhóm protein) gồm nấm Sumac, nấm Chanterelle, hoa Fireweed và hoa củ cải; ngoài ra ăn dưa lưới sừng, dừa, xoài, táo gai núi (nhóm carb) cùng nấm Russula và củ cải (nhóm lipid).",
+        "Làm tổ kiểu đắp mô (Mount); giới hạn bầy 6 cá thể, tối đa 6 trứng mỗi ổ."
       ]
     },
     dryosaurus: {
       name: "Dryosaurus",
-      model: "images/models/dryosaurus.glb",
+      poster: "images/herbivores/dryosaurus.jpg",
       pdf: "Herbivores_Dryosaurus_Tieng_Viet.pdf",
-      lede: "Một trong những cư dân đáng yêu nhất đảo — Dryosaurus nổi tiếng với sự nhanh nhẹn, linh hoạt và thân hình nhỏ bé. Là món mồi ưa thích của các loài ăn thịt, Dryosaurus được khuyến khích trốn trong hang khi không thể chạy thoát.",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-herbivores/dryosaurus",
+      lede: "Một trong những cư dân đáng yêu nhất đảo — Dryosaurus nhỏ bé, được xây dựng quanh sự nhanh nhẹn và khả năng né tránh thay vì đối đầu trực diện. Là món mồi ưa thích của nhiều loài ăn thịt, chúng dựa vào tốc độ và phản xạ để sống sót.",
       stats: [
-        ["TRỌNG LƯỢNG TỐI ĐA", "130 kg"],
-        ["TỐC ĐỘ CHẠY", "45 km/h"],
-        ["LỰC CẮN", "20 N"],
+        ["TRỌNG LƯỢNG TỐI ĐA", "185 kg"],
+        ["TỐC ĐỘ CHẠY", "50,4 km/h"],
+        ["LỰC CẮN", "23 N"],
         ["GIỚI HẠN BẦY", "10"],
-        ["TT TRƯỞNG THÀNH", "1g5p–2g10p"],
+        ["TT TRƯỞNG THÀNH", "4g25p"],
         ["TRỨNG TỐI ĐA/Ổ", "8"]
       ],
       abilities: [
         "Không thể né tránh (dodge) khi đang tha thức ăn trong miệng.",
-        "Né tránh không tiêu hao thể lực.",
-        "Có độ nhanh nhẹn, khả năng hồi thể lực và né tránh tốt."
-      ]
-    },
-    tenontosaurus: {
-      name: "Tenontosaurus",
-      model: "images/models/tenontosaurus.glb",
-      pdf: "Herbivores_Tenontosaurus_Tieng_Viet.pdf",
-      lede: "Vẻ đẹp và sự thanh thoát là điểm nhận diện của Tenontosaurus. Loài ăn cỏ này ưa sống yên bình, nhưng đừng để vẻ ngoài đánh lừa — với móng vuốt lớn trên cả bốn chi, chiếc đuôi đồ sộ và tốc độ cao, chúng trở thành đối thủ nguy hiểm khi bị khiêu khích.",
-      stats: [
-        ["TRỌNG LƯỢNG TỐI ĐA", "1.600 kg"],
-        ["TỐC ĐỘ CHẠY", "40,5 km/h"],
-        ["LỰC CẮN", "25 N"],
-        ["GIỚI HẠN BẦY", "8"],
-        ["TT TRƯỞNG THÀNH", "2g25p–4g40p"],
-        ["TRỨNG TỐI ĐA/Ổ", "6"]
-      ],
-      abilities: [
-        "Quật đuôi định hướng (Alt + chuột phải): nâng đuôi rồi đập xuống đối thủ, gây hạ gục/choáng, sát thương gốc 150 (225 vào đầu).",
-        "Đá hậu (chuột phải): gây hạ gục và choáng, sát thương gốc 275 (412,5 vào đầu), gây chảy máu đáng kể.",
-        "Cào định hướng (Alt + chuột trái): dùng được khi đi chậm, đi bộ hoặc đứng yên (không dùng khi chạy nước rút), sát thương gốc 125 (187 vào đầu).",
-        "Cắn (chuột trái): đòn tấn công cơ bản.",
-        "Kỹ năng đặc biệt \"quật đuôi\" có thể làm choáng đối thủ trong 2–3 giây.",
-        "Hệ số chảy máu thay đổi theo cách di chuyển: 1,4x khi đi chậm, 1,8x khi lội, 2,2x khi chạy nước rút — có thể cộng dồn nhưng không kéo dài thời gian."
+        "Né tránh (chuột phải) có 2 lượt sử dụng, hồi chiêu 10 giây và không tốn thể lực.",
+        "Chuột trái: đá về phía trước khi đứng yên, cắn khi đang chạy nước rút, hoặc quật đuôi sang ngang/phía sau tuỳ góc nhắm.",
+        "Có độ nhanh nhẹn, khả năng hồi thể lực và né tránh tốt.",
+        "Thức ăn ưa thích (nhóm protein) gồm nấm Chanterelle và cây Sumac; ngoài ra ăn dưa lưới sừng (nhóm carb), nấm Russula (nhóm lipid), cùng dây khoai lang, củ khoai lang dại và nho đỏ.",
+        "Làm tổ kiểu ụ đất (Mound); giới hạn bầy 10 cá thể, tối đa 8 trứng mỗi ổ."
       ]
     },
     hypsilophodon: {
       name: "Hypsilophodon",
-      model: "images/models/hypsilophodon.glb",
+      poster: "images/herbivores/hypsilophodon.jpg",
       pdf: "Herbivores_Hypsilophodon_Tieng_Viet.pdf",
-      lede: "Một loài ăn cỏ nhỏ được sinh ra để sống trong rừng rậm, nổi bật với khả năng nhảy và tốc độ ấn tượng. Đặc biệt, chúng có thể phun ra dòng axit dạ dày để gây mù tạm thời cho kẻ săn mồi.",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-herbivores/hypsilophodon",
+      lede: "Một loài ăn cỏ nhỏ được sinh ra để sống trong rừng rậm, nổi bật với khả năng nhảy và tốc độ chạy vượt trội so với kích thước. Đặc biệt, chúng có thể phun ra dòng axit dạ dày để gây mù tạm thời cho kẻ săn mồi.",
       stats: [
-        ["TRỌNG LƯỢNG TỐI ĐA", "20 kg"],
+        ["TRỌNG LƯỢNG TỐI ĐA", "23 kg"],
         ["TỐC ĐỘ CHẠY", "39,6 km/h"],
-        ["LỰC CẮN", "2 N"],
+        ["LỰC CẮN", "2,3 N"],
         ["GIỚI HẠN BẦY", "10"],
-        ["TT TRƯỞNG THÀNH", "30p trở lên"],
+        ["TT TRƯỞNG THÀNH", "1g50p"],
         ["TRỨNG TỐI ĐA/Ổ", "6"]
       ],
       abilities: [
-        "Tốc độ rất cao với khả năng xoay người khá tốt.",
+        "Chuột trái: cắn thường; giữ chuột trái để phun axit dạ dày gây mù tạm thời cho mục tiêu — hành động này tiêu tốn thức ăn dự trữ.",
+        "Giữ chuột phải + phím cách: bám và leo trèo lên bề mặt cao.",
         "Nhảy cao, có thể tiếp cận các bề mặt cao hơn; giữ phím nhảy để nhảy cao hơn.",
-        "Phun axit dạ dày (chuột phải): bắn một khối axit hôi vào khủng long khác gây mù tạm thời — có thể bắn nhanh (nhấn) hoặc ngắm trước (giữ); tốn thức ăn và có thể gây chết cho kitten; nhấn R để huỷ.",
-        "Cá thể non chưa thể phun axit; hành vi xin ăn (begging) kết thúc khi đạt 44% thể vóc.",
-        "Giữ phím E để loại bỏ hiệu ứng mù khi bị dính axit.",
-        "Con đực có lông mày nhô cao — đặc điểm lưỡng hình giới tính."
+        "Tốc độ rất cao với khả năng xoay người khá tốt.",
+        "Dạ dày tiêu hao trong khoảng 30 phút (từ 100% về 0%), nước tiêu hao trong khoảng 45 phút.",
+        "Thức ăn ưa thích (nhóm protein) gồm rong Dulse, nấm Chanterelle, cây Sumac và hoa Fireweed; ngoài ra ăn dừa, xoài, dưa lưới sừng (nhóm carb) và nấm Russula (nhóm lipid).",
+        "Làm tổ bằng mảnh vụn (Debris); giới hạn bầy 10 cá thể, tối đa 6 trứng mỗi ổ."
+      ]
+    },
+    kentrosaurus: {
+      name: "Kentrosaurus",
+      poster: "images/herbivores/kentrosaurus.jpg",
+      pdf: "Herbivores_Kentrosaurus_Tieng_Viet.pdf",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-herbivores/kentrosaurus",
+      lede: "Kentrosaurus biến mọi cuộc đối đầu thành canh bạc thua thiệt cho kẻ tấn công. Hàng gai nhọn dọc thân và đuôi khiến những kẻ săn mồi phải cân nhắc kỹ trước khi dấn thân, trong khi cú quật đuôi đầy sức mạnh sẵn sàng trừng phạt bất kỳ ai đến quá gần.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "2.200 kg"],
+        ["TỐC ĐỘ CHẠY", "43,9 km/h"],
+        ["LỰC CẮN", "34,5 N"],
+        ["GIỚI HẠN BẦY", "5"],
+        ["TT TRƯỞNG THÀNH", "11g05p"],
+        ["TRỨNG TỐI ĐA/Ổ", "5"]
+      ],
+      abilities: [
+        "Giữ chuột phải để tích lực cho cú quật mạnh (Power Swing).",
+        "Giữ chuột phải rồi nhấn chuột trái để tung cú quật mạnh đã tích lực.",
+        "Gai trên lưng và vai gây sát thương phản đòn (reflection damage) một cách thụ động cho bất kỳ ai tấn công ở cự ly gần.",
+        "Giữ Ctrl để vào tư thế phòng thủ: tăng sát thương phản đòn, tăng độ ổn định và chặn được một số đòn tấn công đặc biệt.",
+        "Thức ăn ưa thích (nhóm protein) gồm hoa Fireweed, hoa củ cải, hoa Sunchoke và Agave; ngoài ra ăn K-Trifolium xanh, xoài, táo gai núi, cúc vạn thọ, cam đốm (nhóm carb) cùng dừa, nấm Russula, củ cải và K-Trifolium tím (nhóm lipid).",
+        "Làm tổ kiểu ụ đất (Mound); giới hạn bầy 5 cá thể, tối đa 5 trứng mỗi ổ."
+      ]
+    },
+    maiasaura: {
+      name: "Maiasaura",
+      poster: "images/herbivores/maiasaura.jpg",
+      pdf: "Herbivores_Maiasaura_Tieng_Viet.pdf",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-herbivores/maiasaura",
+      lede: "Maiasaura là loài hadrosaur cỡ lớn sở hữu khả năng di chuyển kép, có thể chuyển đổi linh hoạt giữa dáng đi hai chân và bốn chân ngay giữa trận chiến. Đứng thẳng hai chân giúp nó tăng tốc, còn hạ thấp bốn chân lại mang đến sự vững vàng cần thiết để trụ vững trước kẻ thù. Với lượng máu dồi dào và lối chiến đấu thích nghi linh hoạt, đây là một trong những loài ăn cỏ bền bỉ và khó hạ gục nhất trên đảo.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "5.400 kg"],
+        ["TỐC ĐỘ CHẠY", "46,9 km/h"],
+        ["LỰC CẮN", "57,5 N"],
+        ["GIỚI HẠN BẦY", "10"],
+        ["TT TRƯỞNG THÀNH", "7g"],
+        ["TRỨNG TỐI ĐA/Ổ", "8"]
+      ],
+      abilities: [
+        "Tư thế hai chân: chuột trái khi đứng yên hoặc đi bộ tung đòn vuốt xoay 360 độ, còn khi đang chạy sẽ tung loạt vuốt chém liên tiếp phía trước; chuột phải dùng để đẩy/tấn công lúc đứng yên, hoặc đẩy hông/húc đầu sang bên khi đang chạy.",
+        "Nhấn CTRL hoặc SPACEBAR để chuyển sang tư thế bốn chân, chậm hơn nhưng vững vàng hơn.",
+        "Tư thế bốn chân: chuột trái kết hợp hướng di chuyển cho ra đòn tấn công phía trước, đá hậu, đá hậu chéo góc hoặc đá ngang tùy hướng; chuột phải tung đòn húc đầu/cắn.",
+        "Ưa thích các nguồn đạm như Sumac, nấm Chanterelle và Crimson Apollan K-Trifolium để duy trì thể trạng.",
+        "Sống theo bầy tối đa 10 thành viên, làm tổ dạng gò đất với tối đa 8 trứng mỗi ổ."
+      ]
+    },
+    pachycephalosaurus: {
+      name: "Pachycephalosaurus",
+      poster: "images/herbivores/pachycephalosaurus.jpg",
+      pdf: "Herbivores_Pachycephalosaurus_Tieng_Viet.pdf",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-herbivores/pachycephalosaurus",
+      lede: "Pachycephalosaurus là loài ăn cỏ cỡ nhỏ đến trung bình với chiếc hộp sọ vòm dày đặc trưng, thứ vũ khí mà nó tận dụng triệt để trong những cú húc đầu chí mạng. Sức mạnh của nó nằm ở tốc độ ra đòn và lối cận chiến chớp nhoáng, đủ sức khiến kẻ tấn công choáng váng. Tuy nhiên, thân hình nhẹ cân khiến nó rất dễ gặp nguy hiểm trước những kẻ săn mồi lớn hơn nếu không kịp rút lui.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "910 kg"],
+        ["TỐC ĐỘ CHẠY", "47,2 km/h"],
+        ["LỰC CẮN", "34,5 N"],
+        ["GIỚI HẠN BẦY", "8"],
+        ["TT TRƯỞNG THÀNH", "6g15p"],
+        ["TRỨNG TỐI ĐA/Ổ", "6"]
+      ],
+      abilities: [
+        "Chuột phải: húc đầu lao thẳng về phía trước, có thể bấm nhanh hoặc giữ rồi thả để tích lực.",
+        "ALT + chuột trái: vung đầu sang ngang để quật ngã đối phương.",
+        "Chuột trái: đòn cắn thông thường.",
+        "Ưu tiên các nguồn đạm như Dulse và Fireweed, bên cạnh dừa, xoài cùng nhiều loại quả và củ khác để bổ sung năng lượng.",
+        "Sống theo bầy tối đa 8 thành viên, làm tổ dạng gò đất với tối đa 6 trứng mỗi ổ."
       ]
     },
     stegosaurus: {
       name: "Stegosaurus",
-      model: "images/models/stegosaurus.glb",
+      poster: "images/herbivores/stegosaurus.jpg",
       pdf: "Herbivores_Stegosaurus_Tieng_Viet.pdf",
-      lede: "Gã khổng lồ chậm rãi này thích cuộc sống an nhàn. Chúng dùng kích thước to lớn và vũ khí ấn tượng để xua đuổi hầu hết những kẻ săn mồi. Vì di chuyển chậm, Stegosaurus thiên về chống trả hơn là bỏ chạy — hãy cẩn thận với chiếc đuôi, một cú quật trúng đích có thể gây chết người.",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-herbivores/stegosaurus",
+      lede: "Stegosaurus là loài ăn cỏ bọc giáp nặng nề, nổi bật với hàng gai nhọn dọc sống lưng và chiếc đuôi có gai cực kỳ nguy hiểm. Di chuyển chậm rãi và có phần vụng về, nhưng một khi buộc phải phòng thủ, những cú quật đuôi của nó có thể gây ra vết thương chí mạng cho bất kỳ kẻ săn mồi cỡ vừa nào. Dù vậy, nó vẫn dễ bị áp đảo nếu bị vây hãm hoặc chịu sức ép dồn dập từ các loài thú ăn thịt cỡ lớn.",
       stats: [
-        ["TRỌNG LƯỢNG TỐI ĐA", "6.000 kg"],
-        ["TỐC ĐỘ CHẠY", "26,2 km/h"],
-        ["LỰC CẮN", "50 N"],
-        ["GIỚI HẠN BẦY", "chưa công bố"],
-        ["TT TRƯỞNG THÀNH", "chưa công bố"],
-        ["TRỨNG TỐI ĐA/Ổ", "chưa công bố"]
+        ["TRỌNG LƯỢNG TỐI ĐA", "9.300 kg"],
+        ["TỐC ĐỘ CHẠY", "30,6 km/h"],
+        ["LỰC CẮN", "57,5 N"],
+        ["GIỚI HẠN BẦY", "5"],
+        ["TT TRƯỞNG THÀNH", "17g55p"],
+        ["TRỨNG TỐI ĐA/Ổ", "5"]
       ],
       abilities: [
-        "Kích thước to lớn khiến hầu hết kẻ săn mồi phải dè chừng.",
-        "Sở hữu vũ khí phòng thủ đáng gờm — chiếc đuôi gai.",
-        "Cú quật đuôi có thể gây sát thương chí mạng nếu trúng đích.",
-        "Do di chuyển chậm, thiên về đối đầu hơn là bỏ chạy khi bị đe doạ.",
-        "Thường sinh sống ở vùng đồng bằng, thỉnh thoảng kiếm ăn gần rìa rừng."
+        "ALT + chuột trái: đòn 'quật đuôi' theo hướng di chuyển, ra đòn nhanh và liên tục.",
+        "Giữ chuột phải: đòn lao húc tích lũy dựa trên thể lực, không có thời gian hồi.",
+        "Chuột trái: đòn cắn thông thường.",
+        "Luân phiên nhấn A/D để né đòn nhắm vào đầu bằng chiêu 'lắc lư né đòn'.",
+        "Nhấn hoặc giữ S để lùi bước sau khi tung đòn quật đuôi.",
+        "Ưa thích các nguồn đạm như Sumac, Fireweed, nấm Chanterelle và hoa Radish.",
+        "Sống theo bầy tối đa 5 thành viên, làm tổ dạng gò đất với tối đa 5 trứng mỗi ổ."
+      ]
+    },
+    tenontosaurus: {
+      name: "Tenontosaurus",
+      poster: "images/herbivores/tenontosaurus.jpg",
+      pdf: "Herbivores_Tenontosaurus_Tieng_Viet.pdf",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-herbivores/tenontosaurus",
+      lede: "Tenontosaurus là loài ăn cỏ đa năng, nổi tiếng với sức bền đáng nể và khả năng tự vệ bằng những cú đá mạnh cùng đòn quật đuôi. Với tốc độ khá tốt so với kích thước cơ thể, nó có thể bỏ xa kẻ truy đuổi trên những quãng đường dài. Không được bọc giáp dày như các loài ăn cỏ khác, nhưng sự dẻo dai và lối phòng thủ cân bằng giúp nó sống sót tốt trong nhiều môi trường khác nhau.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "1.830 kg"],
+        ["TỐC ĐỘ CHẠY", "44,1 km/h"],
+        ["LỰC CẮN", "40,25 N"],
+        ["GIỚI HẠN BẦY", "8"],
+        ["TT TRƯỞNG THÀNH", "5g40p"],
+        ["TRỨNG TỐI ĐA/Ổ", "6"]
+      ],
+      abilities: [
+        "Chuột trái: đòn cắn thông thường.",
+        "Chuột phải: đá hậu mạnh khiến đối phương ngã hoặc choáng, gây 275 sát thương cơ bản và 412,5 sát thương vào đầu.",
+        "ALT + chuột phải: đòn quật đuôi theo hướng, gây 150 sát thương cơ bản và 225 sát thương vào đầu, khiến đối phương ngã hoặc choáng.",
+        "ALT + chuột trái: đòn vuốt theo hướng, gây 125 sát thương cơ bản và 187 sát thương vào đầu.",
+        "Ưa thích các nguồn đạm như Dulse, Fireweed, Agave và hoa Sunchoke.",
+        "Sống theo bầy tối đa 8 thành viên, làm tổ dạng gò đất với tối đa 6 trứng mỗi ổ."
+      ]
+    },
+    triceratops: {
+      name: "Triceratops",
+      poster: "images/herbivores/triceratops.jpg",
+      pdf: "Herbivores_Triceratops_Tieng_Viet.pdf",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-herbivores/triceratops",
+      lede: "Triceratops là loài ceratopsian cỡ lớn với thân hình vạm vỡ, thiên về phòng thủ chắc chắn và lối giao chiến có kiểm soát. Phần đầu của nó có khả năng kháng sát thương cực cao trước các đòn tấn công trực diện, và thiệt hại lên vùng đầu còn giảm thêm đáng kể khi được che chắn đúng cách. Đây là một đối thủ đáng gờm mà bất kỳ kẻ săn mồi nào cũng phải dè chừng khi đối đầu trực diện.",
+      stats: [
+        ["TRỌNG LƯỢNG TỐI ĐA", "12.500 kg"],
+        ["TỐC ĐỘ CHẠY", "26,3 km/h"],
+        ["LỰC CẮN", "1.035 N"],
+        ["GIỚI HẠN BẦY", "4"],
+        ["TT TRƯỞNG THÀNH", "29g10p"],
+        ["TRỨNG TỐI ĐA/Ổ", "6"]
+      ],
+      abilities: [
+        "Chuột trái: đòn húc đầu cơ bản; giữ chuột trái để hất tung/quật ngã đối phương; bấm đúp để tung đòn giày xéo, gây thêm sát thương lên mục tiêu đã ngã.",
+        "ALT + chuột trái: đòn tấn công xoay 360 độ, quét quanh mọi hướng.",
+        "Giữ chuột phải: chặn đòn tấn công vào đầu, tăng 50% lượng sát thương được đỡ; giữ khi di chuyển ngang để vào tư thế phòng thủ, giảm thêm sát thương vùng đầu.",
+        "CTRL: bật/tắt chế độ giao đấu (spar mode), trong đó SPACEBAR dùng để né đòn.",
+        "Vừa chạy nước rút vừa tấn công: đẩy lùi đối phương.",
+        "Ưa thích các nguồn đạm như Agave, hoa Sunchoke, Fiddlehead và Crimson Apollan K-Trifolium.",
+        "Sống theo bầy tối đa 4 thành viên, làm tổ dạng gò đất với tối đa 6 trứng mỗi ổ."
       ]
     },
     beipiaosaurus: {
       name: "Beipiaosaurus",
-      model: "images/models/beipiaosaurus.glb",
+      poster: "images/omnivores/beipiaosaurus.jpg",
       pdf: "Omnivores_Beipiaosaurus_Tieng_Viet.pdf",
-      lede: "Loài therizinosaur nhỏ bé này ưa thích sự an toàn dưới nước, nơi chúng ăn thực vật thuỷ sinh và đôi khi cả động vật nhỏ. Chúng dùng móng vuốt to bản trên chi trước để bám vào đá và đáy sông khi dòng nước chảy xiết — bơi giỏi nhưng di chuyển trên cạn rất vụng về, dù vẫn có khả năng phòng thủ đáng nể so với kích thước.",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-omnivores/beipiaosaurus",
+      lede: "Beipiaosaurus là loài ăn tạp nhỏ, bán thủy sinh, phát huy tốt nhất khi hoạt động trong và quanh các tuyến đường nước — nó nổi và bơi rất linh hoạt nhưng lại khá yếu ớt khi lên cạn. Lối sinh tồn của nó xoay quanh khả năng di chuyển dưới nước và tập tính kiếm ăn cơ hội, tận dụng môi trường nước để né tránh những kẻ săn mồi lớn trên cạn và khai thác nguồn thức ăn mà các loài sống trên cạn khó với tới.",
       stats: [
         ["TRỌNG LƯỢNG TỐI ĐA", "90 kg"],
-        ["TỐC ĐỘ CHẠY", "32 km/h"],
-        ["LỰC CẮN", "20 N"],
-        ["GIỚI HẠN BẦY", "12+"],
-        ["TT TRƯỞNG THÀNH", "55p–1g55p"],
+        ["TỐC ĐỘ CHẠY", "32,9 km/h"],
+        ["LỰC CẮN", "23 N"],
+        ["GIỚI HẠN BẦY", "12"],
+        ["TT TRƯỞNG THÀNH", "3g40p"],
         ["TRỨNG TỐI ĐA/Ổ", "8"]
       ],
       abilities: [
-        "Rất nổi, tự động nổi lên mặt nước — phải liên tục bơi để ở dưới nước.",
-        "Bán thuỷ sinh, di chuyển linh hoạt dưới nước nhưng không thể ăn cỏ trên cạn.",
-        "Lượng oxy dự trữ dưới nước kéo dài khoảng 1 phút 45 giây.",
-        "Có thể bơi 750m trên mặt nước hoặc 600m khi lặn.",
-        "Có thể ăn đàn cá và tấn công để lấy thức ăn.",
-        "Giữ phím cúi (Ctrl) để bám vào đáy sông khi đang lặn.",
-        "Từ 38% thể vóc trở lên có thể ăn được ếch bò (bullfrog).",
-        "Có thể tấn công bằng cách trồi lên và đánh giữa không trung."
+        "Trên cạn: chuột phải tấn công bằng mỏ, chuột trái tấn công bằng vuốt; dưới nước thì ngược lại — chuột phải dùng vuốt (gây chảy máu), chuột trái dùng mỏ.",
+        "ALT + chuột trái: đòn tổ hợp xoay 360° kết hợp cả vuốt lẫn mỏ.",
+        "Giữ CTRL để bám vào đáy sông/suối, nhưng phải lặn xuống tới đáy trước.",
+        "Dưới nước: giữ phím cách để nhảy vọt liên tục, chỉnh góc camera để tăng độ cao cú nhảy; giữ thêm Shift để nhảy nhanh hơn.",
+        "Nổi và bơi cực kỳ linh hoạt dưới nước nhưng khá yếu ớt, dễ tổn thương khi ở trên cạn.",
+        "Ưa thích Hoa Củ Cải và Cỏ Lửa để lấy đạm, Cua/Cá nhỏ/Thanh Trà Núi để lấy tinh bột, và Củ Cải cùng Ếch Bò (cần tăng trưởng từ 38% trở lên) để lấy chất béo.",
+        "Làm tổ bằng cành cây mục (debris), giới hạn bầy 12 cá thể, tối đa 8 trứng mỗi ổ."
       ]
     },
     gallimimus: {
       name: "Gallimimus",
-      model: "images/models/gallimimus.glb",
+      poster: "images/omnivores/gallimimus.jpg",
       pdf: "Omnivores_Gallimimus_Tieng_Viet.pdf",
-      lede: "Gallimimus sinh tồn chủ yếu nhờ tốc độ cao và khả năng cơ động để thoát khỏi những kẻ truy đuổi. Dù chủ yếu ăn thực vật, chúng vẫn là loài ăn tạp, có thể ăn cả trứng khủng long.",
+      source: "https://www.evrimaquickguide.com/playables/quick-facts-omnivores/gallimimus",
+      lede: "Gallimimus là loài di chuyển cực nhanh, được xây dựng quanh tốc độ và sự gắn kết bầy đàn. Nó gần như không có vũ khí phòng vệ đáng kể, mà chủ yếu dựa vào khả năng bỏ chạy để thoát khỏi kẻ săn mồi. Đôi chân dài và sức bền tốt khiến nó trở thành một trong những con mồi khó bắt nhất, và khi hoạt động theo đàn, nó cực kỳ cảnh giác và phối hợp nhịp nhàng.",
       stats: [
-        ["TRỌNG LƯỢNG TỐI ĐA", "425 kg"],
-        ["TỐC ĐỘ CHẠY", "46,8–55,4 km/h"],
-        ["LỰC CẮN", "25 N"],
+        ["TRỌNG LƯỢNG TỐI ĐA", "560 kg"],
+        ["TỐC ĐỘ CHẠY", "54 km/h"],
+        ["LỰC CẮN", "28,75 N"],
         ["GIỚI HẠN BẦY", "8"],
-        ["TT TRƯỞNG THÀNH", "1g40p–3g40p"],
+        ["TT TRƯỞNG THÀNH", "5g25p"],
         ["TRỨNG TỐI ĐA/Ổ", "6"]
       ],
       abilities: [
-        "Đòn tấn công không còn gây hiệu ứng chảy máu.",
-        "Mất khoảng 3 giây để đạt tốc độ tối đa.",
-        "Tốc độ thay đổi theo độ no: từ 46,8 km/h (đói) đến 55,4 km/h (no đủ 3 ô thức ăn).",
-        "Lực bật nhảy tăng nếu có quãng đường lấy đà.",
-        "Là loài khá ồn ào.",
-        "Gây chảy máu qua các đòn đá.",
-        "Ưa sống ở vùng đồng bằng trống trải."
+        "Đứng yên: chuột phải cắn thấp theo hướng camera, chuột trái đá vuốt chân khiến bạn dừng lại tại chỗ.",
+        "Khi di chuyển hoặc chạy nước rút: chuột trái/phải gây đòn đánh kèm hất văng, tiêu hao thể lực.",
+        "Khi đang nhảy: chuột trái/phải tấn công mục tiêu ngay trên không.",
+        "ALT + chuột trái: đòn vuốt có định hướng.",
+        "Phím Q để đánh hơi phát hiện hang thỏ, phím E để đào hang lấy thức ăn.",
+        "Phím 1: tiếng gọi tập hợp bầy, giúp tăng tốc độ di chuyển.",
+        "Chân dài và sức bền cao giúp nó là một trong những con mồi khó bắt nhất, gần như không có vũ khí phòng vệ nên chỉ dựa vào tốc độ để chạy trốn.",
+        "Ưa thích Hoa Củ Cải, Cỏ Lửa, Cua, Thanh Trà Núi, Củ Cải, Ếch Bò, và ăn thêm Cam, Agave, Hoa Sunchoke, Hạt Điều, Bí Ngô.",
+        "Làm tổ dạng gò đất (mound), giới hạn bầy 8 cá thể, tối đa 6 trứng mỗi ổ."
       ]
     }
   };
