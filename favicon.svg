@@ -1,5 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" rx="14" fill="#0c130d"/>
   <rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#f2b705" stroke-width="2.5"/>
-  <text x="32" y="38" font-size="34" text-anchor="middle" dominant-baseline="middle">🦖</text>
+  <g fill="#f2b705">
+    <ellipse cx="32" cy="46" rx="10" ry="7.5"/>
+    <ellipse cx="32" cy="21" rx="4.4" ry="11.5"/>
+    <ellipse cx="19.5" cy="27" rx="4.4" ry="11.5" transform="rotate(-34 19.5 27)"/>
+    <ellipse cx="44.5" cy="27" rx="4.4" ry="11.5" transform="rotate(34 44.5 27)"/>
+  </g>
 </svg>
