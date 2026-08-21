@@ -183,6 +183,37 @@
   .section-title:not(:first-child) {
     margin-top: 46px;
   }
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 34px;
+  }
+  .tab {
+    font-family: "JetBrains Mono", "Courier New", monospace;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 12px;
+    color: var(--text-dim);
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 3px;
+    padding: 9px 14px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  }
+  .tab:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+  .tab.active {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: #0c130d;
+  }
+  .category-section.hidden {
+    display: none;
+  }
   footer {
     text-align: center;
     font-family: "JetBrains Mono", "Courier New", monospace;
@@ -372,6 +403,14 @@
 </header>
 
 <main>
+  <div class="tabs" id="categoryTabs">
+    <button type="button" class="tab active" data-filter="all">TẤT CẢ</button>
+    <button type="button" class="tab" data-filter="carnivores">ĂN THỊT · CARNIVORES</button>
+    <button type="button" class="tab" data-filter="herbivores">ĂN CỎ · HERBIVORES</button>
+    <button type="button" class="tab" data-filter="omnivores">ĂN TẠP · OMNIVORES</button>
+  </div>
+
+  <div class="category-section" data-category="carnivores">
   <div class="section-title">⚠ ĂN THỊT · CARNIVORES</div>
   <div class="grid">
 
@@ -462,7 +501,9 @@
     </button>
 
   </div>
+  </div>
 
+  <div class="category-section" data-category="herbivores">
   <div class="section-title">⚠ ĂN CỎ · HERBIVORES</div>
   <div class="grid">
 
@@ -537,7 +578,9 @@
     </button>
 
   </div>
+  </div>
 
+  <div class="category-section" data-category="omnivores">
   <div class="section-title">⚠ ĂN TẠP · OMNIVORES</div>
   <div class="grid">
 
@@ -556,6 +599,7 @@
       <div class="view">XEM HỒ SƠ →</div>
     </button>
 
+  </div>
   </div>
 </main>
 
@@ -1266,6 +1310,20 @@
   document.querySelectorAll(".guide-trigger[data-dino]").forEach(function(btn){
     btn.addEventListener("click", function(){
       openDino(btn.getAttribute("data-dino"));
+    });
+  });
+
+  var tabsEl = document.getElementById("categoryTabs");
+  var categorySections = document.querySelectorAll(".category-section");
+  tabsEl.addEventListener("click", function(e){
+    var tab = e.target.closest(".tab");
+    if (!tab) return;
+    tabsEl.querySelectorAll(".tab").forEach(function(t){ t.classList.remove("active"); });
+    tab.classList.add("active");
+    var filter = tab.getAttribute("data-filter");
+    categorySections.forEach(function(section){
+      var show = filter === "all" || section.getAttribute("data-category") === filter;
+      section.classList.toggle("hidden", !show);
     });
   });
 
